@@ -11,7 +11,7 @@ Another source is [https://github.com/emanuel4you/phpsqlitecms](https://github.c
 
 My goal is to combine the best of both versions and eliminate existing issues. 
 
-Das betrifft zum Beispiel:
+That concerns for example:
 
 * Submenus; These are already included in emanuel4you, but do not work properly.
 * Backups of the Database; This are already included in emanuel4you, but do not work properly.
