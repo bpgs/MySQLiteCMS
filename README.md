@@ -24,3 +24,5 @@ That concerns for example:
 * Changed:\cms\templates\default.tpl
 * Changed:\cms\data\content.sqlite
 * Changed:\cms\templates\admin\subtemplates\edit.inc.tpl
+
+The main improvement is that you now can include News-Pages and Simple-News-Pages into other pages.
