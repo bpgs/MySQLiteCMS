@@ -17,3 +17,10 @@ That concerns for example:
 * Backups of the Database; This are already included in emanuel4you, but do not work properly.
 * Inserting news pages
 * Adapting the Editor in Non-WYSIWYG Mode
+
+## Changes
+
+* New: \cms\templates\default-3menus-news.tpl
+* Changed:\cms\templates\default.tpl
+* Changed:\cms\data\content.sqlite
+* Changed:\cms\templates\admin\subtemplates\edit.inc.tpl
