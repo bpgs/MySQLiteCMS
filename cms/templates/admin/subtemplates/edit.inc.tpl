@@ -3,7 +3,8 @@
     <p class="caution"><?php if (isset($lang[$invalid_request])) echo $lang[$invalid_request]; else echo $invalid_request; ?></p>
 
 <?php else: ?>
-
+<!-- angepasste Datei edit.inc.tpl, Aufruf erfolgt von mehreren Dateien -->
+<!-- Das sind comments.inc.php, edit.inc.php, galleries.inc.php, gcb.inc.php, menus.inc.php, users.inc.php -->
     <form id="content-form" action="index.php" method="post" class="form-horizontal">
     <div>
     <input type="hidden" name="mode" value="edit"/>
@@ -363,7 +364,22 @@
                    class="form-control form-control-default"/>
         </div>
     </div>
-
+	<!-- neu eingefuegt fuer news -->
+    <div class="form-group">
+        <label for="news" class="col-lg-2 control-label"><?php echo $lang['edit_include_news']; ?></label>
+		
+        <div class="col-lg-10">
+		<!-- aus Version 2.0.4-->
+		<select name="include_news" size="1">
+			<option value=""<?php if(empty($page_data['include_news'])): ?> selected="selected"<?php endif; ?>></option>
+			<?php foreach($simple_news_pages as $simple_news_page): ?>
+				<option value="<?php echo $simple_news_page['id']; ?>"<?php if(isset($page_data['include_news']) && $page_data['include_news']==$simple_news_page['id']): ?> selected="selected"<?php endif; ?>><?php echo $simple_news_page['page']; ?></option>
+			<?php endforeach; ?>
+		</select>
+		<!-- Ende aus Version 2.0.4-->		
+        </div>
+    </div>
+	<!-- Ende fuer news -->
     <div class="form-group">
         <label for="tv" class="col-lg-2 control-label"><?php echo $lang['template_variables']; ?></label>
 
@@ -576,3 +592,4 @@
         </div>
     </div>
 </div>
+<!-- Ende Datei edit.inc.tpl -->
