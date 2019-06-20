@@ -59,3 +59,14 @@ td.options { text-align:right; white-space:nowrap; }
 #mylightbox-next:hover        { background:url(../img/next.png) no-repeat 90% center, linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.2));  }
 #mylightbox-close             { width:16px; height:16px; display:inline-block; text-indent:-999em; background:url(../img/close_button.png) no-repeat 0 0; outline:none; opacity:0.7; }
 #mylightbox-close:hover       { opacity:1; }
+
+.insert_html, .format-button{
+	font-size:13px;
+    background-color: white;
+    border-radius: 3px;
+    padding: 1px 5px;
+    border-color: #bbb;
+    border-width: 1px;
+	min-width:20px;
+	
+}

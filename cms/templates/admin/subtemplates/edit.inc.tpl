@@ -1,3 +1,9 @@
+<!-- erweiterter Editor -->
+<!-- Die Erweiterungen beziehen sich auf den Nicht-WYSIWYG-Modus.
+	 Die bisherige Variante hatte nur die Buttons: Bild einfügen, Thumbnail einfügen und Galerie einfügen.
+	 Auf der Basis des Editors der Version 2.0.4 wurden weitere Buttons hinzugefügt:
+	 für die Überschriften h1, h2, h3, für code und pre, p, ul, li, strong, em, br, a img und Link -->
+<!-- Aus einer schon früher angepassten Variante wurde das Feld zum Einfügen von News wieder aufgenommen -->
 <?php if (isset($invalid_request)): ?>
 
     <p class="caution"><?php if (isset($lang[$invalid_request])) echo $lang[$invalid_request]; else echo $invalid_request; ?></p>
@@ -86,7 +92,8 @@
         </div>
 
         <?php if (empty($wysiwyg)): ?>
-            <div class="form-group">
+<!-- hier werden die einzelnen Icons eingefügt -->
+			<div class="form-group">
                 <div class="col-lg-12">
                     <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_image"
                        data-toggle="modal" data-target="#modal_image" data-insert="#content"
@@ -99,6 +106,22 @@
                     <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_gallery"
                        data-toggle="modal" data-target="#modal_gallery" data-insert="#content"
                        title="<?php echo $lang['insert_gallery_label']; ?>"><span class="glyphicon glyphicon-th"></span></a>
+					<input class="insert_html" type="button" value="h1" title="&lt;h1&gt;...&lt;/h1&gt;" onclick="insert_html('&lt;h1&gt;','&lt;/h1&gt;','content-form','content');" />
+					<input class="insert_html" type="button" value="h2" title="&lt;h2&gt;...&lt;/h2&gt;" onclick="insert_html('&lt;h2&gt;','&lt;/h2&gt;','content-form','content');" />
+					<input class="insert_html" type="button" value="h3" title="&lt;h3&gt;...&lt;/h3&gt;" onclick="insert_html('&lt;h3&gt;','&lt;/h3&gt;','content-form','content');" />
+					<input class="insert_html" type="button" value="pre" title="&lt;pre&gt;...&lt;/pre&gt;" onclick="insert_html('&lt;pre&gt;','&lt;/pre&gt;','content-form','content');" />
+					<input class="insert_html" type="button" value="code" title="&lt;code&gt;...&lt;/code&gt;" onclick="insert_html('&lt;code&gt;','&lt;/code&gt;','content-form','content');" />					
+					<input class="insert_html" type="button" value="p" title="&lt;p&gt;...&lt;/p&gt;" onclick="insert_html('&lt;p&gt;','&lt;/p&gt;','content-form','content');" />
+					<input class="insert_html" type="button" value="ul" title="&lt;ul&gt;...&lt;/ul&gt;" onclick="insert_html('&lt;ul&gt;','&lt;/ul&gt;','content-form','content');" />
+					<input class="insert_html" type="button" value="li" title="&lt;li&gt;...&lt;/li&gt;" onclick="insert_html('&lt;li&gt;','&lt;/li&gt;','content-form','content');" />
+					<input class="insert_html" type="button" value="strong" title="&lt;strong&gt;...&lt;/strong&gt;" onclick="insert_html('&lt;strong&gt;','&lt;/strong>','content-form','content');" />
+					<input class="insert_html" type="button" value="em" title="&lt;em&gt;...&lt;/em&gt;" onclick="insert_html('&lt;em&gt;','&lt;/em&gt;','content-form','content');" />
+					<input class="insert_html" type="button" value="br" title="&lt;br /&gt;" onclick="insert_html('&lt;br /&gt;\n','','content-form','content');" />
+					<input class="insert_html" type="button" value="a" title="&lt;a href=&quot;&quot;&gt;...&lt;/a&gt;" onclick="insert_html('&lt;a href=&quot;&quot;&gt;','&lt;/a&gt;','content-form','content');" />
+					<input class="insert_html" type="button" value="img" title="&lt;img src=&quot;&quot; alt=&quot;&quot; height=&quot;&quot; width=&quot;&quot; /&gt;" onclick="insert_html('&lt;img src=&quot;&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;','','content-form','content');" />
+					<!-- In der Datei edit.inc.tpl der Version 2.0.4 sind außerdem noch Tags für Tabellen enthalten. Diese werden hier nicht eingefügt -->
+					<input class="format-button" type="button" value="<?php echo $lang['link_button']; ?>" title="<?php echo $lang['link_button_title']; ?>" onclick="insert_link('content-form','content','<?php echo addslashes($lang['link_text_m']); ?>','<?php echo addslashes($lang['link_target_m']); ?>');" /><br />
+					
                 </div>
             </div>
         <?php endif; ?>
@@ -380,6 +403,7 @@
         </div>
     </div>
 	<!-- Ende fuer news -->
+
     <div class="form-group">
         <label for="tv" class="col-lg-2 control-label"><?php echo $lang['template_variables']; ?></label>
 
@@ -592,4 +616,3 @@
         </div>
     </div>
 </div>
-<!-- Ende Datei edit.inc.tpl -->

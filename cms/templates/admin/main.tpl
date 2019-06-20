@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- angepasste Datei main.tpl -->
 <html lang="<?php echo $lang['lang']; ?>" dir="<?php echo $lang['dir']; ?>">
 <head>
     <meta charset="<?php echo $lang['charset']; ?>"/>
@@ -54,6 +55,7 @@
     <script src="<?php echo WYSIWYG_EDITOR_INIT; ?>"></script>
 <?php endif; ?>
 <script src="<?php echo STATIC_URL; ?>js/admin_backend.js"></script>
+<script src="<?php echo STATIC_URL; ?>js/admin.js"></script>
 <?php if ($mode == 'galleries'): ?>
     <script src="<?php echo STATIC_URL; ?>js/mylightbox.js" type="text/javascript"></script>
 <?php endif; ?>
