@@ -33,3 +33,7 @@ The main improvement is that you now can include News-Pages and Simple-News-Page
 * Changed: \static\css\style_admin.css; CSS Code for the Editor-Buttons
 * Changed: \cms\templates\admin\main.tpl; include admin.js
 * Changed: \cms\templates\admin\subtemplates\edit.inc.tpl; reaction for the Buttons
+
+## Changes 20.06.2019
+
+* \cms\lang\german.admin.lang.php; corrections of misspelled items
