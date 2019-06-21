@@ -5,6 +5,7 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']))
  {
   if(isset($_POST['new_user_submitted']) && $_SESSION[$settings['session_prefix'].'user_type']==1)
    {
+    if(!token_pass()) exit;
     if(trim($_POST['name'])=='' || trim($_POST['pw'])=='' || trim($_POST['pw_r'])=='')
      {
       $errors[] = 'error_form_uncomplete';
@@ -60,6 +61,7 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']))
      {
       if(isset($_REQUEST['confirmed']))
        {
+        if(!token_pass()) exit;
         $dbr = Database::$userdata->prepare("DELETE FROM ".Database::$db_settings['userdata_table']." WHERE id=:id");
         $dbr->bindParam(':id', $_REQUEST['delete'], PDO::PARAM_INT);
         $dbr->execute();
@@ -111,6 +113,7 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']))
 
   if(isset($_POST['edit_user_submitted']))
    {
+    if(!token_pass()) exit;
     if($_SESSION[$settings['session_prefix'].'user_type']==1)
      {
       $name=trim($_POST['name']);

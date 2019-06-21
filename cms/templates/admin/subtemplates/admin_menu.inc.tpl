@@ -53,6 +53,10 @@
                             <li><a href="<?php echo BASE_URL; ?>cms/index.php?mode=users"><span
                                         class="glyphicon glyphicon-user"></span> <?php if ($user_type == 1) echo $lang['admin_menu_user_administr']; else echo $lang['admin_menu_edit_userdata']; ?>
                                 </a></li>
+                            <?php if ($user_type == 1): ?>
+                                <li><a href="<?php echo BASE_URL; ?>cms/index.php?mode=backup"><span
+                                       class="glyphicon glyphicon-save-file"></span> <?php echo $lang['admin_menu_backup']; ?></span>
+                                </a></li><?php endif; ?>
                             <?php if ($settings['caching']): ?>
                                 <li class="divider"></li>
                                 <li><a href="<?php echo BASE_URL; ?>cms/index.php?clear_cache=true"><span

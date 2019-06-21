@@ -38,6 +38,7 @@ CREATE TABLE phpsqlitecms_menus
   link character varying(255) NOT NULL DEFAULT ''::character varying,
   section character varying(255) NOT NULL DEFAULT ''::character varying,
   accesskey character varying(255) NOT NULL DEFAULT ''::character varying,
+  submenu character varying(255) NOT NULL DEFAULT ''::character varying,
   CONSTRAINT phpsqlitecms_menus_pkey PRIMARY KEY (id)
 );
 
@@ -176,7 +177,7 @@ INSERT INTO phpsqlitecms_banlists (name, list) VALUES('user_agents', '');
 INSERT INTO phpsqlitecms_banlists (name, list) VALUES('ips', '');
 INSERT INTO phpsqlitecms_banlists (name, list) VALUES('words', '');
 
-INSERT INTO phpsqlitecms_menus (menu, sequence, name, title, link, section, accesskey) VALUES('main_menu', 1, 'Home', 'Home', '', 'home', '0');
+INSERT INTO phpsqlitecms_menus (menu, sequence, name, title, link, section, accesskey, submenu) VALUES('main_menu', 1, 'Home', 'Home', '', 'home', '0', '');
 
 INSERT INTO phpsqlitecms_pages (page, author, type, type_addition, "time", display_time, last_modified, last_modified_by, title, page_title, description, keywords, category, page_info, language, breadcrumbs, sections, include_page, include_order, include_rss, include_sitemap, link_name, template, content_type, charset, teaser_headline, teaser, teaser_img, content, sidebar_1, sidebar_2, sidebar_3, page_notes, edit_permission, edit_permission_general, tv, status, views, include_news, menu_1, menu_2, menu_3, gcb_1, gcb_2, gcb_3) VALUES ('home', 1, 'default', '', 1230764400, 0, 1381589697, 1, 'Home', 'phpSQLiteCMS - a simple &amp; lightweight CMS', 'phpSQLiteCMS - a simple and lightweight content management system based on php and SQLite', 'CMS, content management system, php, sqlite', NULL, '', '', '', 'home', 0, 0, 0, 0, 'more...', 'default.tpl', '', '', '', '', '', '<h1>Welcome to phpSQLiteCMS with PostgreSQL!</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '', '', '', 'Here you can write down some notes. These notes will not be published. If you see this, <em>phpSQLiteCMS</em> seems to work! First thing to do is [[cms/index.php|log in]] and [[cms/index.php?mode=user|change the password]] (the default username and password is <i>admin</i>). Then you can begin to [[cms/index.php?mode=edit&amp;id=1|edit this page]]. The other pages are examples to see what you can do with this CMS. Just play with them to learn about the functionality...', '', 0, '', 2, 0, 0, 'main_menu', '', '', '', '', '');
 

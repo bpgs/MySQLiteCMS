@@ -163,7 +163,7 @@ function db_error()
 function get_menus()
  {
   #global $db_settings, $pdo;
-  $menu_result = Database::$content->query("SELECT id, menu, name, title, link, section, accesskey FROM ".Database::$db_settings['menu_table']." ORDER BY menu ASC, sequence ASC");
+  $menu_result = Database::$content->query("SELECT id, menu, name, title, link, section, accesskey, submenu FROM ".Database::$db_settings['menu_table']." ORDER BY menu ASC, sequence ASC");
   $i=0;
   while($row = $menu_result->fetch())
    {
@@ -179,6 +179,7 @@ function get_menus()
      }
     $menus[$row['menu']][$i]['section'] = $row['section'];
     $menus[$row['menu']][$i]['accesskey'] = $row['accesskey'];
+    $menus[$row['menu']][$i]['submenu'] = $row['submenu'];
     ++$i;
    }
   if(isset($menus))

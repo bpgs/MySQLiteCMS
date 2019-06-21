@@ -23,10 +23,11 @@
                     <th><?php echo $lang['menu_item_link']; ?></th>
                     <th><?php echo $lang['menu_item_section']; ?></th>
                     <th><?php echo $lang['menu_item_accesskey']; ?></th>
+                    <th><?php echo $lang['menu_item_submenu']; ?></th>
                     <th>&nbsp;</th>
                 </tr>
                 </thead>
-                <tbody<?php if (empty($edit_item)): ?> data-sortable="<?php echo BASE_URL; ?>cms/?mode=menus&amp;reorder_items=true"<?php endif; ?>>
+                <tbody<?php if (empty($edit_item)): ?> data-sortable="<?php echo BASE_URL; ?>cms/index.php?mode=menus&amp;reorder_items=true"<?php endif; ?>>
 
                 <?php if (isset($edit_item)): ?>
                     <?php $i = 0;
@@ -70,6 +71,13 @@
                                            style="width:100%;" /><?php else: ?><?php echo $item['accesskey']; ?><?php endif; ?>
                             </td>
                             <td><?php if ($item['id'] == $edit_item): ?>
+                                    <input class="form-control" type="text"
+                                           name="submenu"
+                                           value="<?php echo $item['submenu']; ?>"
+                                           size="10"
+                                           style="width:100%;" /><?php else: ?><?php echo $item['submenu']; ?><?php endif; ?>
+                            </td>
+                            <td><?php if ($item['id'] == $edit_item): ?>
                                     <input class="btn btn-primary" type="submit"
                                            name="edit_menu_item_submitted"
                                            value="<?php echo $lang['submit_button_ok']; ?>" /><?php else: ?>&nbsp;<?php endif; ?>
@@ -87,6 +95,7 @@
                         <td><?php echo $item['link']; ?></td>
                         <td><?php echo $item['section']; ?></td>
                         <td><?php echo $item['accesskey']; ?></td>
+                        <td><?php echo $item['submenu']; ?></td>
                         <td class="options nowrap">
                             <a class="btn btn-primary btn-xs"
                                href="index.php?mode=menus&amp;action=edit_menu_item&amp;id=<?php echo $item['id']; ?>"
@@ -110,6 +119,7 @@
                     <td><input class="form-control" type="text" name="link" value="" size="10"/></td>
                     <td><input class="form-control" type="text" name="section" value="" size="10"/></td>
                     <td><input class="form-control" type="text" name="accesskey" value="" size="3"/></td>
+                    <td><input class="form-control" type="text" name="submenu" value="" size="10"/></td>
                     <td class="options">
                         <button class="btn btn-success"><span
                                 class="glyphicon glyphicon-plus"></span> <?php echo $lang['add_menu_item_submit']; ?>

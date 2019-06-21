@@ -72,7 +72,7 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']) && $_SESSION[$setting
      {
       $new_sequence = $data['sequence']+1;
      }
-    $dbr = Database::$content->prepare("INSERT INTO ".Database::$db_settings['menu_table']." (menu,sequence,name,title,link,section,accesskey) VALUES (:menu,:sequence,:name,:title,:link,:section,:accesskey)");
+    $dbr = Database::$content->prepare("INSERT INTO ".Database::$db_settings['menu_table']." (menu,sequence,name,title,link,section,accesskey,submenu) VALUES (:menu,:sequence,:name,:title,:link,:section,:accesskey,:submenu)");
     $dbr->bindValue(':menu', trim($_POST['menu']), PDO::PARAM_STR);
     $dbr->bindValue(':sequence', $new_sequence, PDO::PARAM_INT);
     $dbr->bindValue(':name', trim($_POST['name']), PDO::PARAM_STR);
@@ -80,6 +80,7 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']) && $_SESSION[$setting
     $dbr->bindValue(':link', trim($_POST['link']), PDO::PARAM_STR);
     $dbr->bindValue(':section', trim($_POST['section']), PDO::PARAM_STR);
     $dbr->bindValue(':accesskey', trim($_POST['accesskey']), PDO::PARAM_STR);
+    $dbr->bindValue(':submenu', trim($_POST['submenu']), PDO::PARAM_STR);
     $dbr->execute();
     if(isset($cache) && $cache->autoClear) $cache->clear();
     header('Location: '.BASE_URL.ADMIN_DIR.'index.php?mode=menus&edit='.$_POST['menu']);
@@ -88,12 +89,13 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']) && $_SESSION[$setting
 
   if(isset($_POST['edit_item']))
    {
-    $dbr = Database::$content->prepare("UPDATE ".Database::$db_settings['menu_table']." SET name=:name, title=:title, link=:link, section=:section, accesskey=:accesskey WHERE id=:id");
+    $dbr = Database::$content->prepare("UPDATE ".Database::$db_settings['menu_table']." SET name=:name, title=:title, link=:link, section=:section, accesskey=:accesskey,submenu=:submenu WHERE id=:id");
     $dbr->bindValue(':name', trim($_POST['name']), PDO::PARAM_STR);
     $dbr->bindValue(':title', trim($_POST['title']), PDO::PARAM_STR);
     $dbr->bindValue(':link', trim($_POST['link']), PDO::PARAM_STR);
     $dbr->bindValue(':section', trim($_POST['section']), PDO::PARAM_STR);
     $dbr->bindValue(':accesskey', trim($_POST['accesskey']), PDO::PARAM_STR);
+    $dbr->bindValue(':submenu', trim($_POST['submenu']), PDO::PARAM_STR);
     $dbr->bindParam(':id', $_POST['edit_item'], PDO::PARAM_INT);
     $dbr->execute();
     if(isset($cache) && $cache->autoClear) $cache->clear();
@@ -245,7 +247,7 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']) && $_SESSION[$setting
      break;
     case 'edit':
      $template->assign('menu', htmlspecialchars($_GET['edit']));
-     $dbr = Database::$content->prepare("SELECT id, name, sequence, title, link, section, accesskey FROM ".Database::$db_settings['menu_table']." WHERE menu=:menu ORDER BY sequence ASC");
+     $dbr = Database::$content->prepare("SELECT id, name, sequence, title, link, section, accesskey,submenu FROM ".Database::$db_settings['menu_table']." WHERE menu=:menu ORDER BY sequence ASC");
      $dbr->bindValue(':menu', trim($_GET['edit']), PDO::PARAM_STR);
      $dbr->execute();
      $i=0;
@@ -258,6 +260,7 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']) && $_SESSION[$setting
        $items[$i]['link'] = htmlspecialchars($data['link']);
        $items[$i]['section'] = htmlspecialchars($data['section']);
        $items[$i]['accesskey'] = htmlspecialchars($data['accesskey']);
+       $items[$i]['submenu'] = htmlspecialchars($data['submenu']);
        ++$i;
       }
      if(isset($items))
@@ -274,7 +277,7 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']) && $_SESSION[$setting
      $menu_data = $dbr->fetch();
      if(isset($menu_data['menu']))
       {
-       $dbr = Database::$content->prepare("SELECT id, name, sequence, title, link, section, accesskey FROM ".Database::$db_settings['menu_table']." WHERE menu=:menu ORDER BY sequence ASC");
+       $dbr = Database::$content->prepare("SELECT id, name, sequence, title, link, section, accesskey,submenu FROM ".Database::$db_settings['menu_table']." WHERE menu=:menu ORDER BY sequence ASC");
        $dbr->bindParam(':menu', $menu_data['menu'], PDO::PARAM_STR);
        $dbr->execute();
        $i=0;
@@ -286,6 +289,7 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']) && $_SESSION[$setting
          $items[$i]['link'] = htmlspecialchars($data['link']);
          $items[$i]['section'] = htmlspecialchars($data['section']);
          $items[$i]['accesskey'] = htmlspecialchars($data['accesskey']);
+         $items[$i]['submenu'] = htmlspecialchars($data['submenu']);
          ++$i;
         }
        if(isset($items))

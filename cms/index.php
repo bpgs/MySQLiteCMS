@@ -54,6 +54,7 @@ try
     if(is_access_denied()) raise_error('403');
    }
 
+  define('TOKEN_SALT', 'monkey');
   define('ADMIN_DIR', 'cms/');
   define('CACHE_DIR', 'cms/cache/');
   define('BASE_URL',get_base_url('cms/'));
@@ -121,6 +122,7 @@ try
     case 'spam_protection': include('./includes/spam_protection.inc.php'); break;
     case 'users': include('./includes/users.inc.php'); break;
     case 'settings': include('./includes/settings.inc.php'); break;
+    case 'backup': include('./includes/backup.inc.php'); break;
     case 'menus': include('./includes/menus.inc.php'); break;
     case 'image': include('./includes/insert_image.inc.php'); break;
     case 'modal': include('./includes/modal.inc.php'); break;

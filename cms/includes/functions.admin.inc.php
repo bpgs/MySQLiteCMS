@@ -94,4 +94,17 @@ function move_down($item, $section, $table)
   return false;
  }
 
+function token_pass()
+ {
+  $token_pass=true;
+  if(!isset($_REQUEST['token_id'])) $token_pass=false;
+  else
+   {
+    $token_hash=md5(session_id().TOKEN_SALT);
+    if(isset($_REQUEST['token_id'])) $token_id=$_REQUEST['token_id'];
+    if($token_id!==$token_hash) $token_pass=false;
+   }
+  return $token_pass;
+ }
+
 ?>

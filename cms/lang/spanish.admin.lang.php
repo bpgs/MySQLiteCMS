@@ -46,6 +46,7 @@ $lang['admin_menu_user_administr'] =     'Administración de usuarios';
 $lang['admin_menu_clear_cache'] =        'Borrar la caché';
 $lang['admin_menu_edit_userdata'] =      'Editar datos de usuario';
 $lang['admin_menu_settings'] =           'Configuración';
+$lang['admin_menu_backup'] =             'Apoyo';
 
 # login
 $lang['login'] =                         'Iniciar sesión';
@@ -199,6 +200,7 @@ $lang['menu_item_title'] =               'Título';
 $lang['menu_item_link'] =                'Enlace';
 $lang['menu_item_section'] =             'Seccción';
 $lang['menu_item_accesskey'] =           'Tecla de acceso';
+$lang['menu_item_submenu'] =             'Submenú';
 $lang['add_menu_item_submit'] =          'Añadir ítem';
 $lang['no_menu_item'] =                  'No hay ítems en el menú.';
 $lang['insert_menu_item'] =              'Añadir un ítem al menú:';
@@ -486,4 +488,10 @@ $lang['insert_image_alt'] =              'Texto alternativo:';
 $lang['insert_image_width_height'] =     'Anchura/Altura:';
 $lang['delete_error'] =                  'Error al borrar';
 $lang['upload_error'] =                  'Error al subir - por favor ¡compruebe los permisos de la carpeta de imágenes (img)!';
+
+# backup
+$lang['backup'] =                        'Apoyo';
+$lang['create_backup'] =                 'Crear copia de seguridad';
+$lang['delete_this_backup_section'] =    '¿Realmente desea eliminar la copia de seguridad?';
+$lang['no_backup_sections'] =            'No hay copias de seguridad';
 ?>

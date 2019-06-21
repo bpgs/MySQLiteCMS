@@ -44,6 +44,7 @@ $lang['admin_menu_user_administr'] =     'Benutzerverwaltung';
 $lang['admin_menu_clear_cache'] =        'Cache löschen';
 $lang['admin_menu_edit_userdata'] =      'Benutzerdaten bearbeiten';
 $lang['admin_menu_settings'] =           'Einstellungen';
+$lang['admin_menu_backup'] =             'Sicherung';
 
 # login
 $lang['login'] =                         'Login';
@@ -196,6 +197,7 @@ $lang['menu_item_title'] =               'Titel';
 $lang['menu_item_link'] =                'Link';
 $lang['menu_item_section'] =             'Sektion';
 $lang['menu_item_accesskey'] =           'Access-Key';
+$lang['menu_item_submenu'] =             'Untermenü';
 $lang['add_menu_item_submit'] =          'Eintrag hinzufügen';
 $lang['no_menu_item'] =                  'Es ist noch kein Menü-Eintrag vorhanden.';
 $lang['insert_menu_item'] =              'Menü-Eintrag hinzufügen:';
@@ -479,4 +481,10 @@ $lang['insert_image_alt'] =              'ALT-Text:';
 $lang['insert_image_width_height'] =     'Breite/Höhe:';
 $lang['delete_error'] =                  'Fehler beim Löschen';
 $lang['upload_error'] =                  'Fehler beim Hochladen - Schreibberechtigungen prüfen!';
+
+# backup
+$lang['backup'] =                        'Sicherung';
+$lang['create_backup'] =                 'Eine Sicherung erstellen';
+$lang['delete_this_backup_section'] =    'Wollen Sie wirklich diese Sicherung löschen?';
+$lang['no_backup_sections'] =            'Es wurde noch keine Sicherung erstellt';
 ?>

@@ -44,6 +44,7 @@ $lang['admin_menu_user_administr'] =     '管理员';
 $lang['admin_menu_clear_cache'] =        '清除缓存';
 $lang['admin_menu_edit_userdata'] =      '编辑用户';
 $lang['admin_menu_settings'] =           '设置';
+$lang['admin_menu_backup'] =             '备份';
 
 # login
 $lang['login'] =                         '登录';
@@ -196,6 +197,7 @@ $lang['menu_item_title'] =               '描述';
 $lang['menu_item_link'] =                '链接';
 $lang['menu_item_section'] =             '段';
 $lang['menu_item_accesskey'] =           '快捷键';
+$lang['menu_item_submenu'] =             '二级菜单';
 $lang['add_menu_item_submit'] =          '增加项目';
 $lang['no_menu_item'] =                  '没有任何菜单项.';
 $lang['insert_menu_item'] =              '增加菜单项:';
@@ -479,5 +481,11 @@ $lang['insert_image_alt'] =              '描述文本:';
 $lang['insert_image_width_height'] =     '宽/高:';
 $lang['delete_error'] =                  '删除时发生错误';
 $lang['upload_error'] =                  '上传时发生错误 - 请检查图片所在相册的读写权限!';
+
+# backup
+$lang['backup'] =                        '备份';
+$lang['create_backup'] =                 '创建备份';
+$lang['delete_this_backup_section'] =    '难道你真的想删除的备份';
+$lang['no_backup_sections'] =            '有没有备份';
 ?>
 

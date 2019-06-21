@@ -37,7 +37,7 @@
                             title="<?php echo $lang['edit']; ?>"><span class="glyphicon glyphicon-pencil"></span>
                             </a><?php endif; ?>
                         <?php if ($user_type == 1): ?><a class="btn btn-danger btn-xs"
-                                                         href="index.php?mode=users&amp;delete=<?php echo $user['id']; ?>"
+                                                         href="index.php?mode=users&amp;delete=<?php echo $user['id']; ?>&amp;token_id=<?php echo md5(session_id().TOKEN_SALT);?>"
                                                          title="<?php echo $lang['delete']; ?>"
                                                          data-delete-confirm="<?php echo rawurlencode($lang['delete_user_confirm']); ?>">
                                 <span class="glyphicon glyphicon-remove"></span></a><?php endif; ?></td>

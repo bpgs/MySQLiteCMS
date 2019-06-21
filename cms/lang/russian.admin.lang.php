@@ -48,6 +48,7 @@ $lang['admin_menu_user_administr'] =     'Пользователи';
 $lang['admin_menu_clear_cache'] =        'Очистить кэш';
 $lang['admin_menu_edit_userdata'] =      'Изменить данные юзера';
 $lang['admin_menu_settings'] =           'Настройки';
+$lang['admin_menu_backup'] =             'Резервное копирование';
 
 # login
 $lang['login'] =                         'Вход';
@@ -200,6 +201,7 @@ $lang['menu_item_title'] =               'Заголовок';
 $lang['menu_item_link'] =                'Ссылка';
 $lang['menu_item_section'] =             'Секция';
 $lang['menu_item_accesskey'] =           'Горячая клавиша';
+$lang['menu_item_submenu'] =             'Подменю';
 $lang['add_menu_item_submit'] =          'Добавить пункт';
 $lang['no_menu_item'] =                  'Пунктов меню не найдено.';
 $lang['insert_menu_item'] =              'Добавить пункт меню:';
@@ -483,4 +485,10 @@ $lang['insert_image_alt'] =              'ALT текст:';
 $lang['insert_image_width_height'] =     'Ширина/Высота:';
 $lang['delete_error'] =                  'Ошибка удаления';
 $lang['upload_error'] =                  'Ошибка загрузки - проверьте права на запись для папки img!';
+
+# backup
+$lang['backup'] =                        'Резервное копирование';
+$lang['create_backup'] =                 'Создать резервную копию';
+$lang['delete_this_backup_section'] =    'Вы действительно хотите удалить резервную копию?';
+$lang['no_backup_sections'] =            'Там нет резервных копий';
 ?>

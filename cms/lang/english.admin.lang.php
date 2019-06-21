@@ -44,6 +44,7 @@ $lang['admin_menu_user_administr'] =     'User administration';
 $lang['admin_menu_clear_cache'] =        'clear cache';
 $lang['admin_menu_edit_userdata'] =      'Edit user data';
 $lang['admin_menu_settings'] =           'Settings';
+$lang['admin_menu_backup'] =             'Backup';
 
 # login
 $lang['login'] =                         'Log in';
@@ -196,6 +197,7 @@ $lang['menu_item_title'] =               'Title';
 $lang['menu_item_link'] =                'Link';
 $lang['menu_item_section'] =             'Section';
 $lang['menu_item_accesskey'] =           'Accesskey';
+$lang['menu_item_submenu'] =             'Submenu';
 $lang['add_menu_item_submit'] =          'Add item';
 $lang['no_menu_item'] =                  'There\'s no menu item.';
 $lang['insert_menu_item'] =              'Add menu item:';
@@ -479,4 +481,10 @@ $lang['insert_image_alt'] =              'ALT text:';
 $lang['insert_image_width_height'] =     'Width/Height:';
 $lang['delete_error'] =                  'Delete error';
 $lang['upload_error'] =                  'Upload error - check writing permission of img folder!';
+
+# backup
+$lang['backup'] =                        'Backup';
+$lang['create_backup'] =                 'Create backup';
+$lang['delete_this_backup_section'] =    'Do you really want to delete the backup?';
+$lang['no_backup_sections'] =            'There are no backups';
 ?>

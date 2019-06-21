@@ -7,6 +7,7 @@
 
     <form action="<?php basename($_SERVER['PHP_SELF']); ?>" method="post">
         <div>
+            <input type="hidden" name="token_id" value="<?php echo md5(session_id().TOKEN_SALT); ?>" />
             <input type="hidden" name="mode" value="users"/>
             <input type="hidden" name="delete" value="<?php echo $userdata['id']; ?>"/>
             <input type="submit" name="confirmed" value="<?php echo $lang['delete_user_submit']; ?>"/>

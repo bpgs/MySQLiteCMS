@@ -21,6 +21,7 @@
 
     <form class="form-horizontal" action="index.php" method="post">
         <div>
+            <input type="hidden" name="token_id" value="<?php echo md5(session_id().TOKEN_SALT); ?>" />
             <input type="hidden" name="mode" value="users"/>
             <input type="hidden" name="edit_user_submitted" value="true"/>
             <?php if ($user_type == 1): ?>

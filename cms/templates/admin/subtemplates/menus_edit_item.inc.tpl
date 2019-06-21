@@ -17,6 +17,7 @@
                     <th><?php echo $lang['menu_item_link']; ?></th>
                     <th><?php echo $lang['menu_item_section']; ?></th>
                     <th><?php echo $lang['menu_item_accesskey']; ?></th>
+                    <th><?php echo $lang['menu_item_submenu']; ?></th>
                     <th>&nbsp;</th>
                 </tr>
                 <tr>
@@ -29,6 +30,8 @@
                     <td><input type="text" name="section" value="<?php echo $menu_data['section']; ?>" size="10"
                                style="width:100%;"/></td>
                     <td><input type="text" name="accesskey" value="<?php echo $menu_data['accesskey']; ?>" size="3"
+                               style="width:100%;"/></td>
+                    <td><input type="text" name="submenu" value="<?php echo $menu_data['submenu']; ?>" size="10"
                                style="width:100%;"/></td>
                     <td><input type="submit" name="edit_menu_item_submitted"
                                value="<?php echo $lang['submit_button_ok']; ?>"/></td>

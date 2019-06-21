@@ -49,6 +49,7 @@ $lang['admin_menu_user_administr'] =     'Потребители';
 $lang['admin_menu_clear_cache'] =        'Изчистване на кеша';
 $lang['admin_menu_edit_userdata'] =      'Смяна на парола';
 $lang['admin_menu_settings'] =           'Настройки';
+$lang['admin_menu_backup'] =             'Резервно копие';
 
 # login
 $lang['login'] =                         'Вход (админ, редактори)';
@@ -201,6 +202,7 @@ $lang['menu_item_title'] =               'Заглавие (hover текст)';
 $lang['menu_item_link'] =                'Линк (страница или URL)';
 $lang['menu_item_section'] =             'Секция';
 $lang['menu_item_accesskey'] =           'Бърз клавиш (accesskey)';
+$lang['menu_item_submenu'] =             'Подменю';
 $lang['add_menu_item_submit'] =          'Добави елемент';
 $lang['no_menu_item'] =                  'В менюто няма елементи.';
 $lang['insert_menu_item'] =              'Добави елемент в менюто:';
@@ -484,4 +486,10 @@ $lang['insert_image_alt'] =              'ALT текст:';
 $lang['insert_image_width_height'] =     'Широчина/Височина:';
 $lang['delete_error'] =                  'Грешка при изтриването!';
 $lang['upload_error'] =                  'Грешка при качването - моля, проверете атрибутите и правата за запис на папките "img" и "media"!';
+
+# backup
+$lang['backup'] =                        'Резервно копие';
+$lang['create_backup'] =                 'Създаване на резервно копие';
+$lang['delete_this_backup_section'] =    'Наистина ли искате да изтриете гръб?';
+$lang['no_backup_sections'] =            'Все още няма архиви';
 ?>
