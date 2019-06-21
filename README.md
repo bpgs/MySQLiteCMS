@@ -53,6 +53,7 @@ New items for backup and submenu:
 * \cms\lang\spanish.admin.lang.php
 * \cms\lang\ukrainian.admin.lang.php
 
+Different changes:
 
 * \config\definitions.conf.php; newer version for jquery, jqueryui, bootstrap and tinymce
 * \cms\index.php; backup item added
@@ -74,3 +75,4 @@ New items for backup and submenu:
 * \cms\templates\admin\subtemplates\users_edit.inc.tpl; improved security with password token
 * \cms\templates\admin\subtemplates\users_new.inc.tpl; improved security with password token
  
+The main improvements are the database backup and the submenus
