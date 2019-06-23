@@ -75,4 +75,19 @@ Different changes:
 * \cms\templates\admin\subtemplates\users_edit.inc.tpl; improved security with password token
 * \cms\templates\admin\subtemplates\users_new.inc.tpl; improved security with password token
  
-The main improvements are the database backup and the submenus
+The main improvements are the database backup and the submenus.
+
+## Changes 23.06.2019
+
+New:
+
+* \cms\templates\subtemplates\bootstrap-carousel.inc.tpl
+
+Changed:
+
+* \cms\includes\classes\Gallery.class.php
+* \cms\templates\default-3menus-news.tpl - missing jQuery added
+* \cms\includes\functions.inc.php - Handling of the Bootstrap Carousel included
+* \cms\data\content.sqlite - Demo Page of the Bootstrap Carousel included
+
+The main improvements is the Bootstrap Carousel

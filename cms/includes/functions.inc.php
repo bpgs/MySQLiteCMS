@@ -545,6 +545,31 @@ function create_gallery($string)
   return $gallery;
  }
 
+# Neue Funktion fuer das Bootstrap Carousel 
+function create_bootstrap_carousel($string)
+{
+# Nur zum Debug:
+# return "hier soll mal ein Slider rein";
+# enthaelt teilweise noch Code, der aktuell nicht benötigt wird, ggf fuer Ausbau
+  global $settings, $template;
+  $page = isset($GLOBALS['parent_page']) && $GLOBALS['parent_page'] ? $GLOBALS['parent_page'] : PAGE;
+  $template->assign('contains_thumbnails', true);
+  $template->assign('page', $page);
+  $string = explode('|',$string[1]);
+  $bootstrap_carousel = $string[0];
+  #if(isset($string[1])) $img_class = $string[1];
+  $bootstrap_carousel = new Gallery($bootstrap_carousel);
+  if($bootstrap_carousel->photos)
+   {
+    $template->assign('number_of_photos', $bootstrap_carousel->number_of_photos);
+    $template->assign('photos', $bootstrap_carousel->photos);
+   }
+  #$template->assign('lang', Localization::$lang);
+  $bootstrap_carousel = $template->fetch(BASE_PATH.'cms/templates/subtemplates/bootstrap-carousel.inc.tpl');
+  return $bootstrap_carousel;
+}
+
+
 function create_gallery_rss($string)
  {
   global $settings, $template;
@@ -623,6 +648,9 @@ function parse_special_tags($string, $parent_page=false, $rss=false)
    {
     $string = preg_replace_callback("#\[thumbnail:(.+?)\]#is", "create_thumbnail", $string);
     $string = preg_replace_callback("#\[gallery:(.+?)\]#is", "create_gallery", $string);
+	# Zusatz fuer slider
+	$string = preg_replace_callback("#\[bootstrap-carousel:(.+?)\]#is", "create_bootstrap_carousel", $string);
+	# Ende Zusatz fuer slider
    }
   $string = preg_replace_callback('/\[\[([^|\]]+?)(?:\|([^\]]+))?\]\]/', "create_link_callback", $string); 
   return $string;

@@ -160,7 +160,14 @@ if($data['include_news'])
          }
         if($include_news_data['teaser']!='')
          {
-          if($include_news_data['teaser_formatting']==1)
+          // wegen Fehlermeldung auf skywalk-webdesign.de PHP Notice:  Undefined index: teaser_formatting in /var/www/skywalkwebdesignhaupt/docs/cms/includes/content.inc.php on line 163
+		  // basierend auf http://www.php-kurs.com/notice-undefined-index-meldung.htm
+		if ( !isset($include_news_data['teaser_formatting']) 
+		) 
+		{
+			$include_news_data['teaser_formatting']=1;
+		}
+		  if($include_news_data['teaser_formatting']==1)
            {
             $include_news[$i]['teaser'] = auto_html($include_news_data['teaser']);
            }

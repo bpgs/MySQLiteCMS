@@ -9,8 +9,8 @@ class Gallery
   public function __construct($gallery, $commentable=0)
    {
     $this->_localization = Localization::getInstance();
-
-    $dbr = Database::$content->prepare('SELECT id, photo_thumbnail, photo_normal, title, subtitle, description, photos_per_row FROM '.Database::$db_settings['photo_table'].' WHERE gallery=:gallery ORDER BY sequence ASC');
+    # gallery eingefuegt
+    $dbr = Database::$content->prepare('SELECT id, gallery, photo_thumbnail, photo_normal, title, subtitle, description, photos_per_row FROM '.Database::$db_settings['photo_table'].' WHERE gallery=:gallery ORDER BY sequence ASC');
     $dbr->bindParam(':gallery', $gallery, PDO::PARAM_STR);
     $dbr->execute();
 
@@ -39,6 +39,8 @@ class Gallery
          }
        }
       $this->photos[$i]['id'] = $photo_data['id'];
+	  # gallery eingefuegt
+      $this->photos[$i]['gallery'] = $photo_data['gallery'];
       $this->photos[$i]['photo_thumbnail'] = $photo_data['photo_thumbnail'];
       $this->photos[$i]['photo_normal'] = $photo_data['photo_normal'];
       $this->photos[$i]['title'] = htmlspecialchars($photo_data['title']);
