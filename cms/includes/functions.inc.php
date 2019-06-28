@@ -569,6 +569,42 @@ function create_bootstrap_carousel($string)
   return $bootstrap_carousel;
 }
 
+# Neue Funktion Kategoriensammlung
+function create_categories($string)
+{
+  // alt1: $dbr = Database::$content->query("SELECT id, include_page FROM ".Database::$db_settings['pages_table']." WHERE id=:id LIMIT 1");
+  // alt2 $dbr = Database::$content->query("SELECT id, page, include_page, category FROM ".Database::$db_settings['pages_table']." WHERE include_page!=0 AND include_page IS NOT NULL AND include_page != '' AND include_page != 0 AND category!=0 AND category IS NOT NULL AND category != '' AND category != 0 GROUP BY category,include_page");
+  $dbr = Database::$content->query("SELECT v1.id, v1.page, v1.include_page, v1.category, v2.id, v2.page
+FROM phpsqlitecms_pages v1
+INNER JOIN phpsqlitecms_pages v2
+ON v1.include_page = v2.id
+WHERE v1.include_page!=0 AND v1.include_page IS NOT NULL AND v1.include_page != '' AND v1.include_page != 0 AND v1.category!=0 AND v1.category IS NOT NULL AND v1.category != '' AND v1.category != 0
+GROUP BY v1.category,v1.include_page");
+  $dbr->execute();
+  /* Variante 1
+  $data = $dbr->fetchAll();
+  echo "<pre>";
+  print_r ($data);
+  echo "</pre>";
+  */
+  $dbr->bindColumn(1, $id);
+  $dbr->bindColumn(2, $page);  
+  $dbr->bindColumn(3, $include_page_id);  
+  $dbr->bindColumn(4, $category);
+  $dbr->bindColumn(6, $include_page_page);
+  $output='Alle Kategorien: ';
+  while ($row = $dbr->fetch(PDO::FETCH_BOUND)) {
+	  // folgende Zeilen nur Debug
+	  // $data = $id . "\t" . $page . "\t" . $include_page_id . "\t" . $category . "\t" . $include_page_page;
+	  // echo $data."<br>";
+	  $output= $output . '<a title="Select category '.$category. ' on ' .$include_page_page .'" href="' . BASE_URL . $include_page_page.',category:'.$category.'">'.$category.'</a> ';
+	  }  
+  # Nur zum Debug:	
+  // echo "Funktion create_categories";
+  // echo BASE_URL;
+  $categories= $output;
+  return $categories;
+}
 
 function create_gallery_rss($string)
  {
@@ -651,6 +687,9 @@ function parse_special_tags($string, $parent_page=false, $rss=false)
 	# Zusatz fuer slider
 	$string = preg_replace_callback("#\[bootstrap-carousel:(.+?)\]#is", "create_bootstrap_carousel", $string);
 	# Ende Zusatz fuer slider
+	# Zusatz fuer categories
+	$string = preg_replace_callback("#\[categories\]#is", "create_categories", $string);
+	# Ende Zusatz fuer categories
    }
   $string = preg_replace_callback('/\[\[([^|\]]+?)(?:\|([^\]]+))?\]\]/', "create_link_callback", $string); 
   return $string;

@@ -90,4 +90,27 @@ Changed:
 * \cms\includes\functions.inc.php - Handling of the Bootstrap Carousel included
 * \cms\data\content.sqlite - Demo Page of the Bootstrap Carousel included
 
-The main improvements is the Bootstrap Carousel
+The main improvement is the Bootstrap Carousel
+
+## Changes 28.06.2019
+
+New:
+
+* .htaccess in some subdirectories - for security reasons
+* \cms\templates\default-category.tpl - demonstration of news categories
+* \cms\templates\default-headline-3menus-news.tpl - demonstration of headline
+* \static\img\pdf.png - missing icon added
+* \static\img\rss.png - missing icon added
+
+Changed:
+
+* \cms\data\content.sqlite - more demonstration and testpages
+* \cms\includes\edit.inc.php - headline 
+* \cms\includes\functions.inc.php - collection of  news categories
+* \cms\templates\default.tpl - no submenu hover (JavaScript)
+* \cms\templates\default-3menus-news.tpl - no submenu hover (JavaScript)
+* \cms\templates\admin\subtemplates\edit.inc.tpl - category and headline added
+* \cms\templates\subtemplates\news.inc.tpl - category added
+* \cms\templates\subtemplates\overview.inc.tpl - some comments added
+
+The main improvement is categories in news pages

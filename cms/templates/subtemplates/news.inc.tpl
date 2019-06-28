@@ -7,6 +7,9 @@
 
             <h2 class="media-heading"><a
                     href="<?php echo BASE_URL . $item['page']; ?>"><?php echo $item['teaser_headline']; ?></a></h2>
+			<?php if($item['category'] && empty($current_category)): ?>
+				<span class="category">Kategorie: <a title="Klick to filter" href="<?php echo BASE_URL.PAGE.','.CATEGORY_IDENTIFIER.$item['category_urlencoded']; ?>"><?php echo $item['category']; ?> (Klick to filter) </a></span>
+			<?php endif; ?>					
 
             <div class="media">
 
@@ -23,17 +26,12 @@
                 <?php if (isset($item['teaser'])): ?>
                     <p><?php echo $item['teaser']; ?></p>
                 <?php endif; ?>
-
-                <p><a class="btn btn-primary"
-                      href="<?php echo BASE_URL . $item['page']; ?>"><?php echo $item['link_name']; ?></a>
-                    <?php if (isset($item['comments'])): ?>
-                        <a class="btn btn-default"
-                          href="<?php echo BASE_URL . $item['page']; ?>#comments"
-                          class="comments"><?php echo $lang['number_of_comments'][$item['id']]; ?></a>
-                    <?php endif; ?>
-                </p>
-
             </div>
+            <p><a class="btn btn-primary" href="<?php echo BASE_URL . $item['page']; ?>"><?php echo $item['link_name']; ?></a>
+            <?php if (isset($item['comments'])): ?>
+				<a class="btn btn-default comments" href="<?php echo BASE_URL . $item['page']; ?>#comments"><?php echo $lang['number_of_comments'][$item['id']]; ?></a>
+            <?php endif; ?>
+            </p>
         </div>
     <?php endforeach; ?>
 

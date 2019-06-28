@@ -20,18 +20,18 @@
                                         width="<?php echo $included_pages[$n]['teaser_img_width']; ?>"
                                         height="<?php echo $included_pages[$n]['teaser_img_height']; ?>"/></a>
                             <?php endif; ?>
-                            <p class="teaser"><?php echo $included_pages[$n]['teaser']; ?></p>
+                           <p class="teaser"><?php echo $included_pages[$n]['teaser']; ?></p>
 
                             <p><a class="btn btn-primary"
                                   href="<?php echo BASE_URL . $included_pages[$n]['page']; ?>"><?php echo $included_pages[$n]['link_name']; ?></a>
-                            </p>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
+                            </p>						   
+						</div><!-- Ende class="media" -->
+                    </div><!-- Ende class="overview" -->
+                    <?php endif; ?>
+                </div><!-- Ende class="col-md-6" -->
             <?php endfor; ?>
 
-        </div>
+        </div><!-- Ende class="row" -->
     <?php endfor; ?>
 
 <?php endif; ?>

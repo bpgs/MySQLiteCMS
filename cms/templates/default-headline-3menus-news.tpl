@@ -14,7 +14,7 @@
     <link href="<?php echo BOOTSTRAP_CSS; ?>" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
     <link href="<?php echo STATIC_URL; ?>css/style.css" rel="stylesheet">
-    <link rel="shortcut icon" href="<?php echo STATIC_URL; ?>img/favicon.png">
+    <link rel="shortcut icon" href="<?php echo STATIC_URL; ?>img/favicon.ico">
 </head>
 
 <body<?php if ($admin): ?> class="admin"<?php endif; ?>>
@@ -163,7 +163,7 @@
 <script src="<?php echo JQUERY; ?>"></script>
 <script src="<?php echo BOOTSTRAP; ?>"></script>
 <script src="<?php echo STATIC_URL; ?>js/main.js"></script>
-<!--
+<!--	
 <script>
     $('#nav li.dropdown').hover(function() {
         $('#nav ul.dropdown-menu').first().stop(true, true).delay(50).slideDown();

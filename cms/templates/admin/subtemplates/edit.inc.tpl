@@ -70,6 +70,18 @@
             </div>
         </div>
 
+		<!-- headline hinzu -->
+        <div class="form-group">
+            <label for="headline"
+                   class="col-lg-1 control-label control-label-left"><?php echo $lang['edit_headline_marking']; ?></label>
+
+            <div class="col-lg-11">
+                <input id="headline" type="text" name="headline"
+                       value="<?php if (isset($page_data['headline'])) echo $page_data['headline']; ?>" size="50"
+                       class="form-control"/>
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-lg-12">
                 <label for="content"><?php echo $lang['edit_content_marking']; ?></label>
@@ -304,6 +316,16 @@
                    value="<?php if (isset($page_data['keywords'])) echo $page_data['keywords']; ?>"
                    placeholder="<?php echo $lang['values_comma_separated']; ?>" size="60"
                    class="form-control form-control-large"/>
+        </div>
+    </div>
+	<!-- Kategorie -->
+    <div class="form-group">
+        <label for="category" class="col-lg-2 control-label"><?php echo $lang['edit_category_marking']; ?></label>
+
+        <div class="col-lg-10">
+            <input id="category" type="text" name="category"
+                   value="<?php if (isset($page_data['category'])) echo $page_data['category']; ?>" size="60"
+                   class="form-control form-control-default"/>
         </div>
     </div>
 

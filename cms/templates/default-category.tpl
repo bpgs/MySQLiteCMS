@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!-- Template-Datei default-3-menus.tpl mit Menu 2 rechts und Menu 3 in Fusszeile -->
-<!-- page_title eingefügt -->
-<!-- News eingefügt -->
-
 <html lang="<?php echo $lang['lang']; ?>" dir="<?php echo $lang['dir']; ?>">
 <head>
     <meta charset="<?php echo $lang['charset']; ?>"/>
@@ -33,10 +29,28 @@
                 <?php if ($menu_1 && isset($menus[$menu_1])): ?>
                     <ul class="nav nav-pills">
                         <?php foreach ($menus[$menu_1] as $item): ?>
-                            <li<?php if (!empty($item['section']) && $item['section'] == $section[0]): ?> class="active"<?php endif; ?>>
+                            <li<?php if (!empty($item['section']) && $item['section'] == $section[0]): ?> class="active<?php if(!empty($item['submenu'])){ echo 'dropdown'; } ?>"
+                            <?php else: ?>
+                               <?php if(!empty($item['submenu'])): ?> class="dropdown"<?php endif; ?>
+                            <?php endif; ?> >
                             <a href="<?php echo $item['link']; ?>"
-                               title="<?php echo $item['title']; ?>"<?php if ($item['accesskey'] != ''): ?> accesskey="<?php echo $item['accesskey']; ?>"<?php endif; ?>><?php echo $item['name']; ?></a>
-                            </li><?php endforeach; ?>
+                               <?php if(!empty($item['submenu'])): ?> data-toggle="dropdown" class="dropdown-toggle"<?php endif; ?>
+                               title="<?php echo $item['title']; ?>"<?php if ($item['accesskey'] != ''): ?> accesskey="<?php echo $item['accesskey']; ?>"<?php endif; ?>><?php echo $item['name']; ?><?php if(!empty($item['submenu'])){ echo '<span class="caret"></span>'; } ?></a>
+
+                            <?php if(!empty($item['submenu'])){
+                               $menu_sub=$item['submenu'];
+                               if(isset($menus[$menu_sub])) {
+                                   echo '<ul class="dropdown-menu nav-pills nav-stacked" >';
+                                   foreach($menus[$menu_sub] as $item): ?>
+                                       <li><a href="<?php echo $item['link']; ?>" title="<?php echo $item['title']; ?>"><?php echo $item['name']; ?></a></li>
+                                   <?php endforeach; 
+                                   echo '</ul>';
+                                 }
+                               } 
+                            ?>
+                            
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 <?php endif; ?>
             </nav>
@@ -61,73 +75,35 @@
     <?php endif; ?>
 
     <div class="body-content">
-
+<!-- Kategory -->
+	<?php if($category): ?>
+	<p id="category">Kategorie: <?php echo $category; ?></p>
+	<?php elseif(isset($current_category) && $current_category): ?>
+	<p id="category">News der Kategorie: <?php echo $current_category; ?> <a class="close-category" href="<?php echo BASE_URL.PAGE; ?>" title="<?php echo $lang['all_categories']; ?>"><span>Kategoriefilter löschen</span></a></p>
+	<?php endif; ?>
+<!-- Kategorie Ende -->
         <div class="row<?php if (isset($tv['nocolumns'])): ?> main-content<?php endif; ?>">
 
             <?php if (empty($tv['nocolumns'])): ?>
             <div class="col-md-9 main-content">
-            <?php endif; ?>
-			<?php if($page_title): ?>
-				<h1><?php echo $page_title; ?></h1>
-			<?php endif; ?>
+                <?php endif; ?>
+
                 <?php if (empty($hide_content)) echo $content; ?>
                 <?php if (isset($subtemplate)) include(BASE_PATH . 'cms/templates/subtemplates/' . $subtemplate); ?>
 
-            </div><!-- Ende class="col-md-9 main-content" -->
+            </div>
 
             <?php if ($sidebar_2): ?>
                 <div class="col-md-3 sidebar">
                     <?php echo $sidebar_2; ?>
-                </div><!-- Ende class="col-md-3 sidebar" -->
+                </div>
             <?php endif; ?>
-            <?php if ($menu_2 && isset($menus[$menu_2])): ?>
-            <div class="col-md-3 sidebar">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Weiter führende Links</h3>
-				</div><!-- Ende class="panel-heading" -->
-				<div class="panel-body">
-					<ul class="list-unstyled">			
-                    <?php foreach ($menus[$menu_2] as $item): ?>
-                        <li<?php if (!empty($item['section']) && $item['section'] == $section[0]): ?> class="active"<?php endif; ?>>
-                        <a href="<?php echo $item['link']; ?>"
-                               title="<?php echo $item['title']; ?>"<?php if ($item['accesskey'] != ''): ?> accesskey="<?php echo $item['accesskey']; ?>"<?php endif; ?>><?php echo $item['name']; ?></a>
-                        </li><?php endforeach; ?>
-					</ul>
-				</div><!-- Ende class="panel-body" -->
-			</div><!-- Ende class="panel panel-default" -->		
-			</div><!-- Ende class="col-md-3 sidebar" -->			
-            <?php endif; ?>
-			<!-- News-Bereich -->
-			<?php if(isset($include_news)): ?>
-            <div class="col-md-3 sidebar">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Aktuelles</h3>
-				</div><!-- Ende class="panel-heading" -->
-				<div class="panel-body">			
-			<div id="newsrechts">
-			<?php foreach($include_news as $include_news_item): ?>
-				<p class="time"><?php echo $lang['include_news_time'][$include_news_item['id']]; ?></p>
-				<h3><?php if($include_news_item['link']): ?><a href="<?php echo $include_news_item['link']; ?>"><?php echo $include_news_item['title']; ?></a><?php else: ?><?php echo $include_news_item['title']; ?><?php endif; ?></h3>
-				<?php if($include_news_item['teaser']) : ?><p><?php echo $include_news_item['teaser']; ?><?php if($include_news_item['link']): ?> <a href="<?php echo $include_news_item['link']; ?>"><?php echo $include_news_item['linkname']; ?></a><?php endif; ?></p><?php endif; ?>
-			<?php endforeach; ?>
-			</div><!-- Ende newsrechts -->
-				</div><!-- Ende class="panel-body" -->
-			</div><!-- Ende class="panel panel-default" -->		
-			</div><!-- Ende class="col-md-3 sidebar" -->			
-			<?php endif; ?>
-            <div class="col-md-3 sidebar">
-			<div class="panel panel-default">
-<!--Platz fuer die Werbung -->
- 			</div><!-- Ende class="panel panel-default" -->		
-			</div><!-- Ende class="col-md-3 sidebar" -->			
-			<!-- Ende News-Bereich -->			
+
             <?php if (empty($tv['nocolumns'])): ?>
-        </div><!-- Ende class="unklar" -->
+        </div>
         <?php endif; ?>
 
-    </div><!-- Ende class="body-content" -->
+    </div>
 
     <?php if ($sidebar_3): ?>
         <?php echo $sidebar_3; ?>
@@ -141,19 +117,9 @@
             <?php if ($gcb_1 && isset($gcb[$gcb_1])): ?>
                 <?php echo $gcb[$gcb_1]; ?>
             <?php else: ?>
-            <?php if ($menu_3 && isset($menus[$menu_3])): ?>
-                <ul class="nav nav-pills">
-                    <?php foreach ($menus[$menu_3] as $item): ?>
-                        <li>
-                        <a href="<?php echo $item['link']; ?>"
-                           title="<?php echo $item['title']; ?>"<?php if ($item['accesskey'] != ''): ?> accesskey="<?php echo $item['accesskey']; ?>"<?php endif; ?>><?php echo $item['name']; ?></a>
-                        </li><?php endforeach; ?>
-                </ul>
-            <?php endif; ?>
-			
                 <p>&copy; <?php echo date("Y"); ?> <?php echo $settings['author']; ?><?php if ($type != 'news' && $type != 'search' && $type != 'notes'): ?>
-                        <?php echo $lang['page_last_modified']; ?><?php endif; ?>
-						Powered by <a href="https://github.com/bpgs/MySQLiteCMS">MySQLiteCMS</a></p>
+                        <br/><?php echo $lang['page_last_modified']; ?><?php endif; ?><br/>Powered by
+                    <a href="https://github.com/bpgs/MySQLiteCMS">MySQLiteCMS</a></p>
             <?php endif; ?>
         </div>
     </footer>
@@ -171,7 +137,7 @@
         $('#nav ul.dropdown-menu').first().stop(true, true).delay(250).fadeOut();
     });
 </script>
--->	
+-->
 <?php if ($admin): ?>
     <script src="<?php echo STATIC_URL; ?>js/admin_frontend.js"></script>
 <?php endif; ?>
@@ -180,3 +146,4 @@
 <?php endif; ?>
 </body>
 </html>
+

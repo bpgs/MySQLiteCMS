@@ -123,6 +123,7 @@
 <script src="<?php echo JQUERY; ?>"></script>
 <script src="<?php echo BOOTSTRAP; ?>"></script>
 <script src="<?php echo STATIC_URL; ?>js/main.js"></script>
+<!--
 <script>
     $('#nav li.dropdown').hover(function() {
         $('#nav ul.dropdown-menu').first().stop(true, true).delay(50).slideDown();
@@ -130,7 +131,7 @@
         $('#nav ul.dropdown-menu').first().stop(true, true).delay(250).fadeOut();
     });
 </script>
-
+-->
 <?php if ($admin): ?>
     <script src="<?php echo STATIC_URL; ?>js/admin_frontend.js"></script>
 <?php endif; ?>
