@@ -139,7 +139,7 @@
         <?php endif; ?>
 
     </div>
-
+<!-- sidebar_1 -->
     <div class="tab-pane" id="sidebars">
 
         <div class="form-group">
@@ -149,27 +149,124 @@
                           class="form-control html"><?php if (isset($page_data['sidebar_1'])) echo $page_data['sidebar_1']; ?></textarea>
             </div>
         </div>
+<!-- hier werden die einzelnen Icons eingefügt -->
+			<div class="form-group">
+                <div class="col-lg-12">
+                    <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_image"
+                       data-toggle="modal" data-target="#modal_image" data-insert="#sidebar_1"
+                       title="<?php echo $lang['insert_image_label']; ?>"><span
+                            class="glyphicon glyphicon-picture"></span></a>
+                    <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_thumbnail"
+                       data-toggle="modal" data-target="#modal_thumbnail" data-insert="#sidebar_1"
+                       title="<?php echo $lang['insert_thumbnail_label']; ?>"><span
+                            class="glyphicon glyphicon-hand-left"></span></a>
+                    <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_gallery"
+                       data-toggle="modal" data-target="#modal_gallery" data-insert="#sidebar_1"
+                       title="<?php echo $lang['insert_gallery_label']; ?>"><span class="glyphicon glyphicon-th"></span></a>
+					<input class="insert_html" type="button" value="h1" title="&lt;h1&gt;...&lt;/h1&gt;" onclick="insert_html('&lt;h1&gt;','&lt;/h1&gt;','content-form','sidebar_1');" />
+					<input class="insert_html" type="button" value="h2" title="&lt;h2&gt;...&lt;/h2&gt;" onclick="insert_html('&lt;h2&gt;','&lt;/h2&gt;','content-form','sidebar_1');" />
+					<input class="insert_html" type="button" value="h3" title="&lt;h3&gt;...&lt;/h3&gt;" onclick="insert_html('&lt;h3&gt;','&lt;/h3&gt;','content-form','sidebar_1');" />
+					<input class="insert_html" type="button" value="pre" title="&lt;pre&gt;...&lt;/pre&gt;" onclick="insert_html('&lt;pre&gt;','&lt;/pre&gt;','content-form','sidebar_1');" />
+					<input class="insert_html" type="button" value="code" title="&lt;code&gt;...&lt;/code&gt;" onclick="insert_html('&lt;code&gt;','&lt;/code&gt;','content-form','sidebar_1');" />					
+					<input class="insert_html" type="button" value="p" title="&lt;p&gt;...&lt;/p&gt;" onclick="insert_html('&lt;p&gt;','&lt;/p&gt;','content-form','sidebar_1');" />
+					<input class="insert_html" type="button" value="ul" title="&lt;ul&gt;...&lt;/ul&gt;" onclick="insert_html('&lt;ul&gt;','&lt;/ul&gt;','content-form','sidebar_1');" />
+					<input class="insert_html" type="button" value="li" title="&lt;li&gt;...&lt;/li&gt;" onclick="insert_html('&lt;li&gt;','&lt;/li&gt;','content-form','sidebar_1');" />
+					<input class="insert_html" type="button" value="strong" title="&lt;strong&gt;...&lt;/strong&gt;" onclick="insert_html('&lt;strong&gt;','&lt;/strong>','content-form','sidebar_1');" />
+					<input class="insert_html" type="button" value="em" title="&lt;em&gt;...&lt;/em&gt;" onclick="insert_html('&lt;em&gt;','&lt;/em&gt;','content-form','sidebar_1');" />
+					<input class="insert_html" type="button" value="br" title="&lt;br /&gt;" onclick="insert_html('&lt;br /&gt;\n','','content-form','sidebar_1');" />
+					<input class="insert_html" type="button" value="a" title="&lt;a href=&quot;&quot;&gt;...&lt;/a&gt;" onclick="insert_html('&lt;a href=&quot;&quot;&gt;','&lt;/a&gt;','content-form','sidebar_1');" />
+					<input class="insert_html" type="button" value="img" title="&lt;img src=&quot;&quot; alt=&quot;&quot; height=&quot;&quot; width=&quot;&quot; /&gt;" onclick="insert_html('&lt;img src=&quot;&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;','','content-form','sidebar_1');" />
+					<!-- In der Datei edit.inc.tpl der Version 2.0.4 sind außerdem noch Tags für Tabellen enthalten. Diese werden hier nicht eingefügt -->
+					<input class="format-button" type="button" value="<?php echo $lang['link_button']; ?>" title="<?php echo $lang['link_button_title']; ?>" onclick="insert_link('content-form','sidebar_1','<?php echo addslashes($lang['link_text_m']); ?>','<?php echo addslashes($lang['link_target_m']); ?>');" /><br />
+					
+                </div>
+            </div>
+		
         <!--<div class="checkbox">
 <label for="sidebar_1_formatting">
 <input id="sidebar_1_formatting" type="checkbox" name="sidebar_1_formatting" value="1"<?php if (isset($page_data['sidebar_1_formatting']) && $page_data['sidebar_1_formatting'] == 1): ?> checked="checked"'<?php endif; ?> /> <?php echo $lang['edit_formatting']; ?>
 </label>
 </div>-->
-
+<!-- sidebar_2 -->
         <div class="form-group">
             <div class="col-lg-12">
                 <label for="sidebar_2"><?php echo $lang['edit_sidebar_2_marking']; ?></label>
                 <textarea id="sidebar_2" name="sidebar_2" cols="70" rows="13"
-                          class="form-control html"><?php if (isset($page_data['sidebar_1'])) echo $page_data['sidebar_2']; ?></textarea>
+                          class="form-control html"><?php if (isset($page_data['sidebar_2'])) echo $page_data['sidebar_2']; ?></textarea>
             </div>
         </div>
-
+<!-- hier werden die einzelnen Icons eingefügt -->
+			<div class="form-group">
+                <div class="col-lg-12">
+                    <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_image"
+                       data-toggle="modal" data-target="#modal_image" data-insert="#sidebar_2"
+                       title="<?php echo $lang['insert_image_label']; ?>"><span
+                            class="glyphicon glyphicon-picture"></span></a>
+                    <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_thumbnail"
+                       data-toggle="modal" data-target="#modal_thumbnail" data-insert="#sidebar_2"
+                       title="<?php echo $lang['insert_thumbnail_label']; ?>"><span
+                            class="glyphicon glyphicon-hand-left"></span></a>
+                    <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_gallery"
+                       data-toggle="modal" data-target="#modal_gallery" data-insert="#sidebar_2"
+                       title="<?php echo $lang['insert_gallery_label']; ?>"><span class="glyphicon glyphicon-th"></span></a>
+					<input class="insert_html" type="button" value="h1" title="&lt;h1&gt;...&lt;/h1&gt;" onclick="insert_html('&lt;h1&gt;','&lt;/h1&gt;','content-form','sidebar_2');" />
+					<input class="insert_html" type="button" value="h2" title="&lt;h2&gt;...&lt;/h2&gt;" onclick="insert_html('&lt;h2&gt;','&lt;/h2&gt;','content-form','sidebar_2');" />
+					<input class="insert_html" type="button" value="h3" title="&lt;h3&gt;...&lt;/h3&gt;" onclick="insert_html('&lt;h3&gt;','&lt;/h3&gt;','content-form','sidebar_2');" />
+					<input class="insert_html" type="button" value="pre" title="&lt;pre&gt;...&lt;/pre&gt;" onclick="insert_html('&lt;pre&gt;','&lt;/pre&gt;','content-form','sidebar_2');" />
+					<input class="insert_html" type="button" value="code" title="&lt;code&gt;...&lt;/code&gt;" onclick="insert_html('&lt;code&gt;','&lt;/code&gt;','content-form','sidebar_2');" />					
+					<input class="insert_html" type="button" value="p" title="&lt;p&gt;...&lt;/p&gt;" onclick="insert_html('&lt;p&gt;','&lt;/p&gt;','content-form','sidebar_2');" />
+					<input class="insert_html" type="button" value="ul" title="&lt;ul&gt;...&lt;/ul&gt;" onclick="insert_html('&lt;ul&gt;','&lt;/ul&gt;','content-form','sidebar_2');" />
+					<input class="insert_html" type="button" value="li" title="&lt;li&gt;...&lt;/li&gt;" onclick="insert_html('&lt;li&gt;','&lt;/li&gt;','content-form','sidebar_2');" />
+					<input class="insert_html" type="button" value="strong" title="&lt;strong&gt;...&lt;/strong&gt;" onclick="insert_html('&lt;strong&gt;','&lt;/strong>','content-form','sidebar_2');" />
+					<input class="insert_html" type="button" value="em" title="&lt;em&gt;...&lt;/em&gt;" onclick="insert_html('&lt;em&gt;','&lt;/em&gt;','content-form','sidebar_2');" />
+					<input class="insert_html" type="button" value="br" title="&lt;br /&gt;" onclick="insert_html('&lt;br /&gt;\n','','content-form','sidebar_2');" />
+					<input class="insert_html" type="button" value="a" title="&lt;a href=&quot;&quot;&gt;...&lt;/a&gt;" onclick="insert_html('&lt;a href=&quot;&quot;&gt;','&lt;/a&gt;','content-form','sidebar_2');" />
+					<input class="insert_html" type="button" value="img" title="&lt;img src=&quot;&quot; alt=&quot;&quot; height=&quot;&quot; width=&quot;&quot; /&gt;" onclick="insert_html('&lt;img src=&quot;&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;','','content-form','sidebar_2');" />
+					<!-- In der Datei edit.inc.tpl der Version 2.0.4 sind außerdem noch Tags für Tabellen enthalten. Diese werden hier nicht eingefügt -->
+					<input class="format-button" type="button" value="<?php echo $lang['link_button']; ?>" title="<?php echo $lang['link_button_title']; ?>" onclick="insert_link('content-form','sidebar_2','<?php echo addslashes($lang['link_text_m']); ?>','<?php echo addslashes($lang['link_target_m']); ?>');" /><br />
+					
+                </div>
+            </div>
+<!-- sidebar_3 -->
         <div class="form-group">
             <div class="col-lg-12">
                 <label for="sidebar_3"><?php echo $lang['edit_sidebar_3_marking']; ?></label>
                 <textarea id="sidebar_3" name="sidebar_3" cols="70" rows="13"
-                          class="form-control html"><?php if (isset($page_data['sidebar_1'])) echo $page_data['sidebar_3']; ?></textarea>
+                          class="form-control html"><?php if (isset($page_data['sidebar_3'])) echo $page_data['sidebar_3']; ?></textarea>
             </div>
         </div>
+<!-- hier werden die einzelnen Icons eingefügt -->
+			<div class="form-group">
+                <div class="col-lg-12">
+                    <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_image"
+                       data-toggle="modal" data-target="#modal_image" data-insert="#sidebar_3"
+                       title="<?php echo $lang['insert_image_label']; ?>"><span
+                            class="glyphicon glyphicon-picture"></span></a>
+                    <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_thumbnail"
+                       data-toggle="modal" data-target="#modal_thumbnail" data-insert="#sidebar_3"
+                       title="<?php echo $lang['insert_thumbnail_label']; ?>"><span
+                            class="glyphicon glyphicon-hand-left"></span></a>
+                    <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_gallery"
+                       data-toggle="modal" data-target="#modal_gallery" data-insert="#sidebar_3"
+                       title="<?php echo $lang['insert_gallery_label']; ?>"><span class="glyphicon glyphicon-th"></span></a>
+					<input class="insert_html" type="button" value="h1" title="&lt;h1&gt;...&lt;/h1&gt;" onclick="insert_html('&lt;h1&gt;','&lt;/h1&gt;','content-form','sidebar_3');" />
+					<input class="insert_html" type="button" value="h2" title="&lt;h2&gt;...&lt;/h2&gt;" onclick="insert_html('&lt;h2&gt;','&lt;/h2&gt;','content-form','sidebar_3');" />
+					<input class="insert_html" type="button" value="h3" title="&lt;h3&gt;...&lt;/h3&gt;" onclick="insert_html('&lt;h3&gt;','&lt;/h3&gt;','content-form','sidebar_3');" />
+					<input class="insert_html" type="button" value="pre" title="&lt;pre&gt;...&lt;/pre&gt;" onclick="insert_html('&lt;pre&gt;','&lt;/pre&gt;','content-form','sidebar_3');" />
+					<input class="insert_html" type="button" value="code" title="&lt;code&gt;...&lt;/code&gt;" onclick="insert_html('&lt;code&gt;','&lt;/code&gt;','content-form','sidebar_3');" />					
+					<input class="insert_html" type="button" value="p" title="&lt;p&gt;...&lt;/p&gt;" onclick="insert_html('&lt;p&gt;','&lt;/p&gt;','content-form','sidebar_3');" />
+					<input class="insert_html" type="button" value="ul" title="&lt;ul&gt;...&lt;/ul&gt;" onclick="insert_html('&lt;ul&gt;','&lt;/ul&gt;','content-form','sidebar_3');" />
+					<input class="insert_html" type="button" value="li" title="&lt;li&gt;...&lt;/li&gt;" onclick="insert_html('&lt;li&gt;','&lt;/li&gt;','content-form','sidebar_3');" />
+					<input class="insert_html" type="button" value="strong" title="&lt;strong&gt;...&lt;/strong&gt;" onclick="insert_html('&lt;strong&gt;','&lt;/strong>','content-form','sidebar_3');" />
+					<input class="insert_html" type="button" value="em" title="&lt;em&gt;...&lt;/em&gt;" onclick="insert_html('&lt;em&gt;','&lt;/em&gt;','content-form','sidebar_3');" />
+					<input class="insert_html" type="button" value="br" title="&lt;br /&gt;" onclick="insert_html('&lt;br /&gt;\n','','content-form','sidebar_3');" />
+					<input class="insert_html" type="button" value="a" title="&lt;a href=&quot;&quot;&gt;...&lt;/a&gt;" onclick="insert_html('&lt;a href=&quot;&quot;&gt;','&lt;/a&gt;','content-form','sidebar_3');" />
+					<input class="insert_html" type="button" value="img" title="&lt;img src=&quot;&quot; alt=&quot;&quot; height=&quot;&quot; width=&quot;&quot; /&gt;" onclick="insert_html('&lt;img src=&quot;&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;','','content-form','sidebar_3');" />
+					<!-- In der Datei edit.inc.tpl der Version 2.0.4 sind außerdem noch Tags für Tabellen enthalten. Diese werden hier nicht eingefügt -->
+					<input class="format-button" type="button" value="<?php echo $lang['link_button']; ?>" title="<?php echo $lang['link_button_title']; ?>" onclick="insert_link('content-form','sidebar_3','<?php echo addslashes($lang['link_text_m']); ?>','<?php echo addslashes($lang['link_target_m']); ?>');" /><br />
+					
+                </div>
+            </div>
 
     </div>
 
@@ -541,7 +638,41 @@
                 <textarea id="teaser" name="teaser" cols="75" rows="13"
                           class="form-control"><?php if (isset($page_data['teaser'])) echo $page_data['teaser']; ?></textarea>
             </div>
+			
         </div>
+<!-- hier werden die einzelnen Icons eingefügt -->
+		<div class="form-group">
+            <label for="teaser" class="col-lg-2 control-label"><?php echo ''; ?></label>
+            <div class="col-lg-9">
+                <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_image"
+                   data-toggle="modal" data-target="#modal_image" data-insert="#teaser"
+                   title="<?php echo $lang['insert_image_label']; ?>"><span
+                        class="glyphicon glyphicon-picture"></span></a>
+                <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_thumbnail"
+                   data-toggle="modal" data-target="#modal_thumbnail" data-insert="#teaser"
+                   title="<?php echo $lang['insert_thumbnail_label']; ?>"><span
+                        class="glyphicon glyphicon-hand-left"></span></a>
+                <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_gallery"
+                   data-toggle="modal" data-target="#modal_gallery" data-insert="#teaser"
+                   title="<?php echo $lang['insert_gallery_label']; ?>"><span class="glyphicon glyphicon-th"></span></a>
+				<input class="insert_html" type="button" value="h1" title="&lt;h1&gt;...&lt;/h1&gt;" onclick="insert_html('&lt;h1&gt;','&lt;/h1&gt;','content-form','teaser');" />
+				<input class="insert_html" type="button" value="h2" title="&lt;h2&gt;...&lt;/h2&gt;" onclick="insert_html('&lt;h2&gt;','&lt;/h2&gt;','content-form','teaser');" />
+				<input class="insert_html" type="button" value="h3" title="&lt;h3&gt;...&lt;/h3&gt;" onclick="insert_html('&lt;h3&gt;','&lt;/h3&gt;','content-form','teaser');" />
+				<input class="insert_html" type="button" value="pre" title="&lt;pre&gt;...&lt;/pre&gt;" onclick="insert_html('&lt;pre&gt;','&lt;/pre&gt;','content-form','teaser');" />
+				<input class="insert_html" type="button" value="code" title="&lt;code&gt;...&lt;/code&gt;" onclick="insert_html('&lt;code&gt;','&lt;/code&gt;','content-form','teaser');" />					
+				<input class="insert_html" type="button" value="p" title="&lt;p&gt;...&lt;/p&gt;" onclick="insert_html('&lt;p&gt;','&lt;/p&gt;','content-form','teaser');" />
+				<input class="insert_html" type="button" value="ul" title="&lt;ul&gt;...&lt;/ul&gt;" onclick="insert_html('&lt;ul&gt;','&lt;/ul&gt;','content-form','teaser');" />
+				<input class="insert_html" type="button" value="li" title="&lt;li&gt;...&lt;/li&gt;" onclick="insert_html('&lt;li&gt;','&lt;/li&gt;','content-form','teaser');" />
+				<input class="insert_html" type="button" value="strong" title="&lt;strong&gt;...&lt;/strong&gt;" onclick="insert_html('&lt;strong&gt;','&lt;/strong>','content-form','teaser');" />
+				<input class="insert_html" type="button" value="em" title="&lt;em&gt;...&lt;/em&gt;" onclick="insert_html('&lt;em&gt;','&lt;/em&gt;','content-form','teaser');" />
+				<input class="insert_html" type="button" value="br" title="&lt;br /&gt;" onclick="insert_html('&lt;br /&gt;\n','','content-form','teaser');" />
+				<input class="insert_html" type="button" value="a" title="&lt;a href=&quot;&quot;&gt;...&lt;/a&gt;" onclick="insert_html('&lt;a href=&quot;&quot;&gt;','&lt;/a&gt;','content-form','teaser');" />
+				<input class="insert_html" type="button" value="img" title="&lt;img src=&quot;&quot; alt=&quot;&quot; height=&quot;&quot; width=&quot;&quot; /&gt;" onclick="insert_html('&lt;img src=&quot;&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;','','content-form','teaser');" />
+				<!-- In der Datei edit.inc.tpl der Version 2.0.4 sind außerdem noch Tags für Tabellen enthalten. Diese werden hier nicht eingefügt -->
+				<input class="format-button" type="button" value="<?php echo $lang['link_button']; ?>" title="<?php echo $lang['link_button_title']; ?>" onclick="insert_link('content-form','teaser','<?php echo addslashes($lang['link_text_m']); ?>','<?php echo addslashes($lang['link_target_m']); ?>');" /><br />
+            </div>
+           </div>
+		
 
         <div class="form-group">
             <label for="link_name" class="col-lg-2 control-label"><?php echo $lang['edit_include_link']; ?></label>

@@ -18,7 +18,7 @@ if (isset($photos)): ?>
                                         data-subtitle="<?php echo $photos[$n]['subtitle']; ?>"
                                         data-description="<?php echo $photos[$n]['description']; ?>"
                                         width="<?php echo $photos[$n]['width']; ?>"
-                                        height="<?php echo $photos[$n]['height']; ?>"/></a>
+                                        height="<?php echo $photos[$n]['height']; ?>"/><strong><?php echo $photos[$n]['title']; ?> </strong><?php echo $photos[$n]['subtitle']; ?></a>
                             </div>
                         <?php else: ?>
                             <a class="thumbnail"

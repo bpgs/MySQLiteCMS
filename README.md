@@ -114,3 +114,12 @@ Changed:
 * \cms\templates\subtemplates\overview.inc.tpl - some comments added
 
 The main improvement is categories in news pages
+
+## Changes 01.07.2019
+
+* \cms\data\content.sqlite - some examples to demonstrate the new `[baseurl]`
+* \cms\includes\functions.inc.php - some useless comments removed, `[baseurl]` included
+* \cms\templates\admin\subtemplates\edit.inc.tpl - improved editor for sidebar content and teaser content
+* \cms\templates\subtemplates\gallery.inc.tpl - better gallery with view title and subtitle
+
+The main improvements are the special tag `[baseurl]` and the improved editor for sidebar content and teaser content

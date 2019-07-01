@@ -572,8 +572,6 @@ function create_bootstrap_carousel($string)
 # Neue Funktion Kategoriensammlung
 function create_categories($string)
 {
-  // alt1: $dbr = Database::$content->query("SELECT id, include_page FROM ".Database::$db_settings['pages_table']." WHERE id=:id LIMIT 1");
-  // alt2 $dbr = Database::$content->query("SELECT id, page, include_page, category FROM ".Database::$db_settings['pages_table']." WHERE include_page!=0 AND include_page IS NOT NULL AND include_page != '' AND include_page != 0 AND category!=0 AND category IS NOT NULL AND category != '' AND category != 0 GROUP BY category,include_page");
   $dbr = Database::$content->query("SELECT v1.id, v1.page, v1.include_page, v1.category, v2.id, v2.page
 FROM phpsqlitecms_pages v1
 INNER JOIN phpsqlitecms_pages v2
@@ -668,7 +666,12 @@ function create_link_callback($string)
   else $link = '<a href="'.$string[1].'">'.$string[1].'</a>';
   return $link;
  }
-
+# Zusatz fuer baseurl
+ function create_baseurl($string)
+ {
+  return BASE_URL;
+ }
+ 
 function parse_special_tags($string, $parent_page=false, $rss=false)
  {
   global $settings;
@@ -690,6 +693,10 @@ function parse_special_tags($string, $parent_page=false, $rss=false)
 	# Zusatz fuer categories
 	$string = preg_replace_callback("#\[categories\]#is", "create_categories", $string);
 	# Ende Zusatz fuer categories
+	# Zusatz fuer baseurl
+	$string = preg_replace_callback("#\[baseurl\]#is", "create_baseurl", $string);
+	# Ende Zusatz fuer baseurl
+	
    }
   $string = preg_replace_callback('/\[\[([^|\]]+?)(?:\|([^\]]+))?\]\]/', "create_link_callback", $string); 
   return $string;
