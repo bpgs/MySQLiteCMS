@@ -123,3 +123,20 @@ The main improvement is categories in news pages
 * \cms\templates\subtemplates\gallery.inc.tpl - better gallery with view title and subtitle
 
 The main improvements are the special tag `[baseurl]` and the improved editor for sidebar content and teaser content
+
+## Changes 02.07.2019
+
+New:
+
+* favicon.ico
+* all files in the \static\img\favicon directory
+
+Changed:
+
+* \static\img\favicon.png
+* \cms\templates\default.tpl
+* \cms\templates\default-3menus-news.tpl
+* \cms\templates\default-category.tpl
+* \cms\templates\default-headline-3menus-news.tpl
+
+All changes serve the favicon representation.
