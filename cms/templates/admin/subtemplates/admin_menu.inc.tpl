@@ -55,7 +55,7 @@
                                 </a></li>
                             <?php if ($user_type == 1): ?>
                                 <li><a href="<?php echo BASE_URL; ?>cms/index.php?mode=backup"><span
-                                       class="glyphicon glyphicon-save-file"></span> <?php echo $lang['admin_menu_backup']; ?></span>
+                                       class="glyphicon glyphicon-save-file"></span> <?php echo $lang['admin_menu_backup']; ?>
                                 </a></li><?php endif; ?>
                             <?php if ($settings['caching']): ?>
                                 <li class="divider"></li>

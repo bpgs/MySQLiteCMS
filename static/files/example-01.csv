@@ -1,0 +1,10 @@
+id,menu,sequence,name,title,link,section,accesskey
+36,main_menu,1,Home,Home,,home,0
+37,main_menu,3,Documentation,Documentation,documentation,documentation,
+39,main_menu,2,About,About phpSQLiteCMS,about,about,
+43,demo-sub2,1,BPGS.DE,BPGS.DE,https://bpgs.de,,
+44,demo-sub2,2,Bolivien,Guide Book,https://bolivien.bpgs.de,,
+45,demo-sub2,3,Freehost-Profi,Free Webspace,https://freehost-profi.de,,
+46,demo-sub1,1,New Default Template,Demonstration of the new Default Template,/documentation/template-default-3menus-news,/documentation,
+47,demo-sub1,2,Include News,Include a News Page,/documentation/include-news,,
+48,demo-sub1,3,Include Simple News,Include a Simple News Page,/documentation/include-simple-news,,

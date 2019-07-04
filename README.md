@@ -113,7 +113,7 @@ Changed:
 * \cms\templates\subtemplates\news.inc.tpl - category added
 * \cms\templates\subtemplates\overview.inc.tpl - some comments added
 
-The main improvement is categories in news pages
+The main improvement is categories in news pages.
 
 ## Changes 01.07.2019
 
@@ -140,3 +140,21 @@ Changed:
 * \cms\templates\default-headline-3menus-news.tpl
 
 All changes serve the favicon representation.
+
+## Changes 04.07.2019
+
+New:
+
+* \static\files\example-01.csv - example file for csv-import
+* \static\js\csv.js - JavaScript for filtering and sorting of csv-imported tables
+
+Changed:
+
+* \github\cms\data\content.sqlite - example for csv import added
+* \github\cms\includes\functions.inc.php - spezial tag for csv-import added
+* \github\cms\templates\admin\subtemplates\admin_menu.inc.tpl - minor correction of HTML-Code output
+
+The main improvement is the csv import via special tag:
+
+
+    [csv2table:dateiname|delimiter|id|filter|firstRowHeader|sortable|responsiv|tableclass]

@@ -579,12 +579,6 @@ ON v1.include_page = v2.id
 WHERE v1.include_page!=0 AND v1.include_page IS NOT NULL AND v1.include_page != '' AND v1.include_page != 0 AND v1.category!=0 AND v1.category IS NOT NULL AND v1.category != '' AND v1.category != 0
 GROUP BY v1.category,v1.include_page");
   $dbr->execute();
-  /* Variante 1
-  $data = $dbr->fetchAll();
-  echo "<pre>";
-  print_r ($data);
-  echo "</pre>";
-  */
   $dbr->bindColumn(1, $id);
   $dbr->bindColumn(2, $page);  
   $dbr->bindColumn(3, $include_page_id);  
@@ -592,14 +586,8 @@ GROUP BY v1.category,v1.include_page");
   $dbr->bindColumn(6, $include_page_page);
   $output='Alle Kategorien: ';
   while ($row = $dbr->fetch(PDO::FETCH_BOUND)) {
-	  // folgende Zeilen nur Debug
-	  // $data = $id . "\t" . $page . "\t" . $include_page_id . "\t" . $category . "\t" . $include_page_page;
-	  // echo $data."<br>";
 	  $output= $output . '<a title="Select category '.$category. ' on ' .$include_page_page .'" href="' . BASE_URL . $include_page_page.',category:'.$category.'">'.$category.'</a> ';
 	  }  
-  # Nur zum Debug:	
-  // echo "Funktion create_categories";
-  // echo BASE_URL;
   $categories= $output;
   return $categories;
 }
@@ -667,9 +655,110 @@ function create_link_callback($string)
   return $link;
  }
 # Zusatz fuer baseurl
- function create_baseurl($string)
+function create_baseurl($string)
  {
   return BASE_URL;
+ }
+
+# Zusatz fuer csv2table 
+function strempty($string) {
+    return is_null($string) || $string==="";
+} 
+
+# Der Aufruf kann so aussehen:
+# [csv2table:Dateiname|delimiter:,|id:tab1|filter:0/1|firstRowHeader:0/1|sortable:0/1(js-sort-table)|responsiv:0/1|tableclass:Zusatzklassen der Tabelletable-condensed]
+function create_csv2table($string)
+ {
+  $file_dir = 'static/files/';
+  $js_dir = 'static/js/';
+  $js_dir = BASE_URL.$js_dir;
+  $csvDir = BASE_PATH.$file_dir;
+  $string = explode('|',$string[1]);
+  if ((count ($string)!==1 and (count ($string)!==8))){
+	$output ="<br>"."<strong>Falsche Paramenterzahl!</strong>";
+	$output .="<br>"."<code>[csv2table]</code> verlangt entweder 1 oder 8 Parameter";
+	$output .="<br>"."Also <code>[csv2table:dateiname]</code>. Dann werden für alle anderen Parameter Standardwerte gesetzt. Oder:";
+	$output .="<br>"."<code>[csv2table:dateiname|delimiter|id|filter|firstRowHeader|sortable|responsiv|tableclass]</code> oder";
+	$output .="<br>"."<code>[csv2table:dateiname|delimiter|id|||sortable||tableclass]</code>. Für die leeren Parameter werden dann Standardwerte gesetzt.";
+	return $output;
+  }
+
+  $delimiter = ",";
+  $id="csv";
+  $csvFilter = 1;
+  $firstRowHeader = 1;
+  $sortable=1;
+  $responsiv=1;
+  $tableclass="table table-striped";
+  $file = $string[0];
+  $file = $csvDir . $file;
+  
+  if (!empty($string[1])){
+    $delimiter = $string[1];
+  }
+  if (!empty($string[2])){
+    $id = $string[2];
+  }
+  if (!empty($string[3])){
+    $csvFilter = $string[3];
+  }
+  if (!empty($string[4])){
+    $firstRowHeader = $string[4];
+  }
+  if (!empty($string[5])){
+    $sortable = $string[5];
+  }
+  if (!empty($string[6])){
+    $responsiv = $string[6];
+  }
+  if (!empty($string[7])){
+    $tableclass = $string[7];
+  }
+  
+  $output = "<div id=\"".htmlspecialchars($id)."\"" . " class=\"table-responsive\">\n";
+  if ($csvFilter) {
+    $output .= "<p><input type=\"search\" class=\"light-table-filter\" data-table=\"".htmlspecialchars($tableclass)."\" placeholder=\"Filter\"></p>\n";
+  }
+  $output .= "<table class=\"".htmlspecialchars($tableclass)." js-sort-table\">\n";
+  
+  $row = 0;
+  if ($handle = @fopen($file, "r")) {
+  // loop
+  while (($data = fgetcsv($handle, "1000", $delimiter)) !== false) {
+    $num = count($data);
+	  if (($row == 0) && $firstRowHeader) {
+        $output .= " <thead>\n <tr>\n";
+	  } else {
+		$output .= "<tr>\n";  
+      }
+      for ($c=0; $c < $num; $c++) {
+         if (strempty($data[$c])) {
+             $value = " ";
+         } else {
+             $value = $data[$c];
+         }
+         if (($row == 0) && $firstRowHeader) {
+             $output .= "<th>".htmlspecialchars($value)."</th>\n";
+         } else {
+             $output .= "<td>".htmlspecialchars($value)."</td>\n";
+         }
+     }
+     if (($row == 0) && $firstRowHeader) {
+         $output .= "</tr></thead>\n<tbody>\n";
+     } else {
+         $output .= "</tr>\n";
+     }
+     $row++;
+
+  }
+  $output .= "</tbody></table>\n</div>\n";
+  $output .= "<script defer=\"defer\" src=\"" . $js_dir . "csv.js\"></script>\n";
+  fclose($handle);
+  } else {
+  //$this->yellow->page->error(500, "File '$file' does not exist!");
+  $output = "File '$file' does not exist!";
+  }
+  return $output ;
  }
  
 function parse_special_tags($string, $parent_page=false, $rss=false)
@@ -696,6 +785,9 @@ function parse_special_tags($string, $parent_page=false, $rss=false)
 	# Zusatz fuer baseurl
 	$string = preg_replace_callback("#\[baseurl\]#is", "create_baseurl", $string);
 	# Ende Zusatz fuer baseurl
+	# Zusatz fuer csv2table
+	$string = preg_replace_callback("#\[csv2table:(.+?)\]#is", "create_csv2table", $string);
+	# Ende Zusatz fuer csv2table
 	
    }
   $string = preg_replace_callback('/\[\[([^|\]]+?)(?:\|([^\]]+))?\]\]/', "create_link_callback", $string); 
