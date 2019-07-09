@@ -87,6 +87,7 @@
 			<?php if($page_title): ?>
 				<h1><?php echo $page_title; ?></h1>
 			<?php endif; ?>
+			
                 <?php if (empty($hide_content)) echo $content; ?>
                 <?php if (isset($subtemplate)) include(BASE_PATH . 'cms/templates/subtemplates/' . $subtemplate); ?>
 

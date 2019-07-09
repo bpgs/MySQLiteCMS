@@ -158,3 +158,12 @@ The main improvement is the csv import via special tag:
 
 
     [csv2table:dateiname|delimiter|id|filter|firstRowHeader|sortable|responsiv|tableclass]
+
+## Changes 09.07.2019
+
+* \github\cms\data\content.sqlite - Some descriptions added
+* \cms\includes\edit.inc.php - you can edit now the page views
+* \cms\templates\admin\subtemplates\edit.inc.tpl - you can edit now the page views
+* \cms\templates\default-3menus-news.tpl
+
+The main improvement is that you can edit now the page views.

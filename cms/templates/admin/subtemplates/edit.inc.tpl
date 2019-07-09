@@ -550,8 +550,17 @@
             </div>
         </div>
     </div>
+    <!-- Edit Views -->
+    <div class="form-group">
+        <label for="edit_views" class="col-lg-2 control-label">Seitenaufrufe:</label>
 
-
+        <div class="col-lg-10">
+            <input type="text" id="views" name="views"
+                   value="<?php if (isset($page_data['views'])) echo $page_data['views']; ?>"
+                   class="form-control form-control-default" size="20"/>
+        </div>
+    </div>
+    <!-- End Edit Views -->
     <div class="form-group">
         <strong class="col-lg-2 control-label"><?php echo $lang['status']; ?></strong>
 

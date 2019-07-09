@@ -40,7 +40,7 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']))
   // get data to edit and perform general checks:
   if(isset($_GET['id']))
    {
-    $dbr = Database::$content->prepare("SELECT id,page,author,type,type_addition,time,last_modified,display_time,title,page_title,headline,description,keywords,category,page_info,breadcrumbs,sections,include_page,include_order,include_rss,include_sitemap,include_news,link_name,menu_1,menu_2,menu_3,gcb_1,gcb_2,gcb_3,template,language,content_type,charset,teaser_headline,teaser,teaser_img,content,sidebar_1,sidebar_2,sidebar_3,page_notes, edit_permission, edit_permission_general, tv, status FROM ".Database::$db_settings['pages_table']." WHERE id=:id LIMIT 1");
+    $dbr = Database::$content->prepare("SELECT id,page,author,type,type_addition,time,last_modified,display_time,title,page_title,headline,description,keywords,category,page_info,breadcrumbs,sections,include_page,include_order,include_rss,include_sitemap,include_news,link_name,menu_1,menu_2,menu_3,gcb_1,gcb_2,gcb_3,template,language,content_type,charset,teaser_headline,teaser,teaser_img,content,sidebar_1,sidebar_2,sidebar_3,page_notes, edit_permission, edit_permission_general, tv, status, views FROM ".Database::$db_settings['pages_table']." WHERE id=:id LIMIT 1");
     $dbr->bindParam(':id', $_REQUEST['id'], PDO::PARAM_INT);
     $dbr->execute();
     $data = $dbr->fetch();
@@ -99,7 +99,8 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']))
       $page_data['content'] = htmlspecialchars($data['content']);
 	  // headline
       $page_data['headline'] = htmlspecialchars($data['headline']);
-
+	  // views
+      $page_data['views'] = intval($data['views']);
       $edit_permission_array = explode(',',$data['edit_permission']);
       foreach($edit_permission_array as $edit_permission)
        {
@@ -303,7 +304,7 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']))
      {
       if(isset($_POST['id']) && empty($_POST['edit_mode']))
        {
-        $dbr = Database::$content->prepare("UPDATE ".Database::$db_settings['pages_table']." SET page=:page, type=:type, type_addition=:type_addition, time=:time, last_modified=:last_modified, display_time=:display_time, last_modified_by=:last_modified_by, title=:title, page_title=:page_title, headline=:headline, description=:description, keywords=:keywords, category=:category, page_info=:page_info, breadcrumbs=:breadcrumbs, teaser_headline=:teaser_headline, teaser=:teaser, teaser_img=:teaser_img, content=:content, sidebar_1=:sidebar_1, sidebar_2=:sidebar_2, sidebar_3=:sidebar_3, sections=:sections, include_page=:include_page, include_order=:include_order, include_rss=:include_rss, include_sitemap=:include_sitemap, include_news=:include_news, link_name=:link_name, menu_1=:menu_1, menu_2=:menu_2, menu_3=:menu_3, gcb_1=:gcb_1, gcb_2=:gcb_2, gcb_3=:gcb_3, template=:template, language=:language, content_type=:content_type, charset=:charset, page_notes=:page_notes, edit_permission=:edit_permission, edit_permission_general=:edit_permission_general, tv=:tv, status=:status WHERE id=:id");
+        $dbr = Database::$content->prepare("UPDATE ".Database::$db_settings['pages_table']." SET page=:page, type=:type, type_addition=:type_addition, time=:time, last_modified=:last_modified, display_time=:display_time, last_modified_by=:last_modified_by, title=:title, page_title=:page_title, headline=:headline, description=:description, keywords=:keywords, category=:category, page_info=:page_info, breadcrumbs=:breadcrumbs, teaser_headline=:teaser_headline, teaser=:teaser, teaser_img=:teaser_img, content=:content, sidebar_1=:sidebar_1, sidebar_2=:sidebar_2, sidebar_3=:sidebar_3, sections=:sections, include_page=:include_page, include_order=:include_order, include_rss=:include_rss, include_sitemap=:include_sitemap, include_news=:include_news, link_name=:link_name, menu_1=:menu_1, menu_2=:menu_2, menu_3=:menu_3, gcb_1=:gcb_1, gcb_2=:gcb_2, gcb_3=:gcb_3, template=:template, language=:language, content_type=:content_type, charset=:charset, page_notes=:page_notes, edit_permission=:edit_permission, edit_permission_general=:edit_permission_general, tv=:tv, views=:views, status=:status WHERE id=:id");
         $dbr->bindParam(':page', $_POST['page'], PDO::PARAM_STR);
         $dbr->bindParam(':type', $_POST['type'], PDO::PARAM_STR);
         $dbr->bindParam(':type_addition', $type_addition, PDO::PARAM_STR);
@@ -350,6 +351,8 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']))
         $dbr->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
 		// headline neu
         $dbr->bindParam(':headline', $_POST['headline'], PDO::PARAM_STR);
+		// views neu
+        $dbr->bindParam(':views', $_POST['views'], PDO::PARAM_STR);
         $dbr->execute();
         #print_r(Database::$content->errorInfo());
        }
