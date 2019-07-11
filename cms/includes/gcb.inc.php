@@ -125,7 +125,7 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']))
       {
        $gcbs[$i]['id'] = $data['id'];
        $gcbs[$i]['identifier'] = htmlspecialchars($data['identifier']);
-       $gcbs[$i]['content'] = $data['content'];
+       $gcbs[$i]['content'] = parse_special_tags($data['content']);
        ++$i;
       }
      if(isset($gcbs))

@@ -167,3 +167,21 @@ The main improvement is the csv import via special tag:
 * \cms\templates\default-3menus-news.tpl
 
 The main improvement is that you can edit now the page views.
+
+## Changes 11.07.2019
+
+* \github\cms\data\content.sqlite
+* \cms\includes\content.inc.php - show special tags in Global Content Blogs
+* \cms\includes\gcb.inc.php - show special tags in Global Content Blogs
+
+The main improvement is that you can see now the content of special tags in Global Content Blogs.
+
+You can use the following special tags:
+
+* `[image:imagefile.jpg|classname]` - includes an image file, this is already part of phpSQLiteCMS from ilosuna, can be added via the non-wysiwyg-toolbar of the editor
+* `[thumbnail:#number|classname]` - includes an thumbnail image file, this is already part of phpSQLiteCMS from ilosuna, can be added via the non-wysiwyg-toolbar of the editor
+* `[gallery:galleryname]` - includes a whole imagegallery, this is already part of phpSQLiteCMS from ilosuna, can be added via the non-wysiwyg-toolbar of the editor
+* `[[websitetolink|linktext]]` -  - includes a link , this is already part of phpSQLiteCMS from ilosuna, can be added via the non-wysiwyg-toolbar of the editor
+* `[bootstrapgallery:galleryname]` - includes a whole imagegallery as a **bootstrap slider**, this is **new in MySQLiteCMS**, can **not** be added via the non-wysiwyg-toolbar of the editor, just type it in.
+* `[csv:csvfile.csv]` - includes the content of a csvfile as a table, this is **new in MySQLiteCMS**, can **not** be added via the non-wysiwyg-toolbar of the editor, just type it in.
+* `[baseurl]` - includes the base url of a cms installation, useful if you use a subdirectory, this is **new in MySQLiteCMS**, can **not** be added via the non-wysiwyg-toolbar of the editor, just type it in.

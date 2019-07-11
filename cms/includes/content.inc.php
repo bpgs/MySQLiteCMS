@@ -5,7 +5,8 @@ if(!defined('IN_INDEX')) exit;
 $template->assign('menus', get_menus());
 
 // global content blocks:
-if($settings['global_content_blocks']) $template->assign('gcb', get_global_content_blocks());
+if($settings['global_content_blocks']) $template->assign('gcb', parse_special_tags(get_global_content_blocks()));
+// print_r (parse_special_tags(get_global_content_blocks()));
 
 // content:
 if(empty($data)) // might already be set if error page was loaded
