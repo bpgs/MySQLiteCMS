@@ -185,3 +185,10 @@ You can use the following special tags:
 * `[bootstrapgallery:galleryname]` - includes a whole imagegallery as a **bootstrap slider**, this is **new in MySQLiteCMS**, can **not** be added via the non-wysiwyg-toolbar of the editor, just type it in.
 * `[csv:csvfile.csv]` - includes the content of a csvfile as a table, this is **new in MySQLiteCMS**, can **not** be added via the non-wysiwyg-toolbar of the editor, just type it in.
 * `[baseurl]` - includes the base url of a cms installation, useful if you use a subdirectory, this is **new in MySQLiteCMS**, can **not** be added via the non-wysiwyg-toolbar of the editor, just type it in.
+
+## Changes 19.07.2019
+
+* \cms\data\content.sqlite
+* \cms\includes\functions.inc.php
+
+Avoid PHP 7.2 Notice: __autoload() is deprecated, use spl_autoload_register() instead

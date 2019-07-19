@@ -1,9 +1,11 @@
 <?php
 // autoload required classes:
-function __autoload($class_name)
+// PHP 7.2: __autoload() is deprecated, use spl_autoload_register() instead
+
+spl_autoload_register(function($class_name)
  {
   require_once(BASE_PATH.'cms/includes/classes/'.$class_name.'.class.php');
- }
+ });
 
 if(get_magic_quotes_gpc())
  {
