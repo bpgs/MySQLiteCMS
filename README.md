@@ -192,3 +192,10 @@ You can use the following special tags:
 * \cms\includes\functions.inc.php
 
 Avoid PHP 7.2 Notice: __autoload() is deprecated, use spl_autoload_register() instead
+
+## Changes 20.07.2019
+
+* \cms\data\content.sqlite
+* \cms\templates\admin\subtemplates\settings_advanced.inc.tpl 
+ 
+Avoid PHP 7.2 Notice: The each() function is deprecated

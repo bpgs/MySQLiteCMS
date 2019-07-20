@@ -11,7 +11,7 @@
     <div>
         <input type="hidden" name="mode" value="settings"/>
         <input type="hidden" name="settings_submitted" value="true"/>
-        <?php while (list($key, $val) = each($settings_sorted)): ?>
+        <?php foreach($settings_sorted as $key => $val) : ?>
 
             <div class="form-group">
                 <label for="<?php echo $key; ?>" class="col-md-2 control-label"><?php echo $key; ?></label>
@@ -30,7 +30,7 @@
 
             </div>
 
-        <?php endwhile; ?>
+        <?php endforeach;  ?>
 
         <div class="form-group">
             <div class="col-lg-offset-2 col-lg-5">
