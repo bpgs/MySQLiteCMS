@@ -199,3 +199,12 @@ Avoid PHP 7.2 Notice: __autoload() is deprecated, use spl_autoload_register() in
 * \cms\templates\admin\subtemplates\settings_advanced.inc.tpl 
  
 Avoid PHP 7.2 Notice: The each() function is deprecated
+
+## Changes 22.07.2019
+
+Version 3.6.5
+
+* \cms\data\content.sqlite
+* \cms\includes\classes\News.class.php
+
+Enable special tags in news teaser 

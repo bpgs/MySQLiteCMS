@@ -125,7 +125,7 @@ class News
        }
       if($news_data['teaser']!='')
        {
-        $news[$i]['teaser'] = $news_data['teaser'];
+        $news[$i]['teaser'] = parse_special_tags($news_data['teaser']);
         $news[$i]['more'] = true;
        }
       else
