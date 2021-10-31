@@ -119,7 +119,7 @@ if($data['include_news'])
      }
     else
      {
-      $dbr = Database::$content->prepare("SELECT id, time, teaser_headline, headline, title, page_title, page, teaser, content, link_name AS linkname FROM ".Database::$db_settings['pages_table']." WHERE include_page=:page_id ORDER BY time DESC LIMIT ".$settings['include_news_items']);
+      $dbr = Database::$content->prepare("SELECT id, time, last_modified, teaser_headline, headline, title, page_title, page, teaser, content, link_name AS linkname FROM ".Database::$db_settings['pages_table']." WHERE include_page=:page_id ORDER BY time DESC LIMIT ".$settings['include_news_items']);
      }
     $dbr->bindParam(':page_id', $data['include_news'], PDO::PARAM_INT);
     $dbr->execute();
@@ -128,6 +128,10 @@ if($data['include_news'])
      {
       $include_news[$i]['id'] = $include_news_data['id'];
       $include_news[$i]['time'] = $include_news_data['time'];
+	  if(isset($include_news_page_data['last_modified']))
+	  {
+		  $include_news[$i]['last_modified'] = $include_news_data['last_modified'];
+	  }
       $include_news[$i]['linkname'] = $include_news_data['linkname'];
       $localization->bindReplacePlaceholder($include_news_data['id'], 'time', $include_news_data['time'], 'include_news_time', Localization::FORMAT_TIME);
       

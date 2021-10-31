@@ -62,12 +62,12 @@ class News
     
     if($this->category)
      {
-      $dbr = Database::$content->prepare("SELECT id, page, title, page_title, category, type, time, teaser_headline, teaser, teaser_img, link_name, headline, content FROM ".Database::$db_settings['pages_table']." WHERE include_page=:include_page AND time<=:time AND category=:category AND status!=0 ORDER BY time DESC LIMIT ".(($this->current_page-1)*$this->news_per_page).", ".$this->news_per_page);
+      $dbr = Database::$content->prepare("SELECT id, page, title, page_title, category, type, time, last_modified, teaser_headline, teaser, teaser_img, link_name, headline, content FROM ".Database::$db_settings['pages_table']." WHERE include_page=:include_page AND time<=:time AND category=:category AND status!=0 ORDER BY time DESC LIMIT ".(($this->current_page-1)*$this->news_per_page).", ".$this->news_per_page);
       $dbr->bindParam(':category', $this->category, PDO::PARAM_STR);
      }
     else
      {
-      $dbr = Database::$content->prepare("SELECT id, page, title, page_title, category, type, time, teaser_headline, teaser, teaser_img, link_name, headline, content FROM ".Database::$db_settings['pages_table']." WHERE include_page=:include_page AND time<=:time AND status!=0 ORDER BY time DESC LIMIT ".(($this->current_page-1)*$this->news_per_page).", ".$this->news_per_page);
+      $dbr = Database::$content->prepare("SELECT id, page, title, page_title, category, type, time, last_modified, teaser_headline, teaser, teaser_img, link_name, headline, content FROM ".Database::$db_settings['pages_table']." WHERE include_page=:include_page AND time<=:time AND status!=0 ORDER BY time DESC LIMIT ".(($this->current_page-1)*$this->news_per_page).", ".$this->news_per_page);
      } 
     $dbr->bindParam(':include_page', $this->id, PDO::PARAM_INT);
     $dbr->bindParam(':time', $this->current_time, PDO::PARAM_INT);
@@ -145,6 +145,8 @@ class News
       #$this -> news[$i]['teaser'] = stripslashes($teaser);
       $news[$i]['page'] = $news_data['page'];
       $news[$i]['timestamp'] = $news_data['time'];
+      #$news[$i]['last_modified'] = $news_data['last_modified'];
+	  $news[$i]['last_modified'] = date("d.m.Y", $news_data['last_modified']);
       #$news[$i]['time'] = $news_data['time'];
       #$news[$i]['formated_time'] = format_time(TIME_FORMAT_FULL, $news_data['time']);
 

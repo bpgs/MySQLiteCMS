@@ -3,7 +3,7 @@
 
         <div class="news">
 
-            <p class="time"><?php echo $lang['news_time'][$item['id']]; ?></p>
+            <p class="time">Erstellt am: <?php echo $lang['news_time'][$item['id']]; ?> || Update am: <?php echo $item['last_modified']; ?></p>
 
             <h2 class="media-heading"><a
                     href="<?php echo BASE_URL . $item['page']; ?>"><?php echo $item['teaser_headline']; ?></a></h2>
