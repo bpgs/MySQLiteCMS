@@ -371,13 +371,27 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']))
         $dbr->bindParam(':display_time', $_POST['display_time'], PDO::PARAM_INT);
         $dbr->bindParam(':last_modified_by', $_SESSION[$settings['session_prefix'].'user_id'], PDO::PARAM_INT);
         $dbr->bindParam(':title', $_POST['title'], PDO::PARAM_STR);
-        $dbr->bindParam(':page_title', $_POST['page_title'], PDO::PARAM_STR);
+		if($_POST['page_title']=="")
+		{
+			$dbr->bindParam(':page_title', $_POST['title'], PDO::PARAM_STR);
+		}
+		else
+		{
+			$dbr->bindParam(':page_title', $_POST['page_title'], PDO::PARAM_STR);
+		}
         $dbr->bindParam(':description', $_POST['description'], PDO::PARAM_STR);
         $dbr->bindParam(':keywords', $_POST['keywords'], PDO::PARAM_STR);
         $dbr->bindParam(':category', $_POST['category'], PDO::PARAM_STR);
         $dbr->bindParam(':page_info', $_POST['page_info'], PDO::PARAM_STR);
         $dbr->bindParam(':breadcrumbs', $breadcrumb_list, PDO::PARAM_STR);
-        $dbr->bindParam(':teaser_headline', $_POST['teaser_headline'], PDO::PARAM_STR);
+		if($_POST['teaser_headline']=="")
+		{
+			$dbr->bindParam(':teaser_headline', $_POST['title'], PDO::PARAM_STR);
+		}
+		else
+		{
+			$dbr->bindParam(':teaser_headline', $_POST['teaser_headline'], PDO::PARAM_STR);
+		}
         $dbr->bindParam(':teaser', $_POST['teaser'], PDO::PARAM_STR);
         $dbr->bindParam(':teaser_img', $_POST['teaser_img'], PDO::PARAM_STR);
         $dbr->bindParam(':content', $_POST['content'], PDO::PARAM_STR);
@@ -407,7 +421,15 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']))
         $dbr->bindParam(':tv', $_POST['tv'], PDO::PARAM_STR);
         $dbr->bindParam(':status', $_POST['status'], PDO::PARAM_INT);
         $dbr->bindParam(':author', $_SESSION[$settings['session_prefix'].'user_id'], PDO::PARAM_INT);
-        $dbr->bindParam(':headline', $_POST['headline'], PDO::PARAM_INT);
+		##Wenn headline bei der Erstellung leer, dann aus title übernehmen
+		if($_POST['headline']=="")
+		{
+			$dbr->bindParam(':headline', $_POST['title'], PDO::PARAM_STR);
+		}
+		else
+		{
+			$dbr->bindParam(':headline', $_POST['headline'], PDO::PARAM_STR);
+		}
         $dbr->execute();
        }
 
