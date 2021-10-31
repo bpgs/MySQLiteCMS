@@ -35,4 +35,3 @@
     <?php echo $lang['no_notes']; ?>
 
 <?php endif; ?>
-S
