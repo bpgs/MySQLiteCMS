@@ -207,4 +207,26 @@ Version 3.6.5
 * \cms\data\content.sqlite
 * \cms\includes\classes\News.class.php
 
-Enable special tags in news teaser 
+Enable special tags in news teaser
+
+## Changes 31.10.2021
+
+Version 3.7.0
+
+To show Update date in News:
+
+* \cms\includes\classes\content.inc.php
+* \cms\includes\classes\News.class.php
+* \cms\templates\classes\subtemplates\news.inc.tpl
+
+Usage of Tiny MCE, Version 4.3.8
+
+* \cms\config\definitions.conf.php modified
+* \static\js\tinymce-4.3.8-min.js is New
+* all in \static\js\plugins is New
+* all in Dateien in \static\js\skins is New
+* all in Dateien in \static\js\themes is New
+
+
+
+
