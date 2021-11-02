@@ -227,6 +227,20 @@ Usage of Tiny MCE, Version 4.3.8
 * all in Dateien in \static\js\skins is New
 * all in Dateien in \static\js\themes is New
 
+## Changes 02.11.2021
 
+Version 3.7.1
+
+More comments in
+
+* edit.inc.tpl
+* modal_insert_gallery.tpl
+* modal_insert_image.tpl
+* modal_insert_raw_image.tpl
+* modal_insert_thumbnail.tpl
+
+Textcolor and Spellcheck enabled
+
+* wysiwyg_init.js 
 
 
