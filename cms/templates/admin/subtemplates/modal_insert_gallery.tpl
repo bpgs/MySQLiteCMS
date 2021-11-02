@@ -1,4 +1,4 @@
-<div class="modal-header">
+<div class="modal-header"><!-- Datei modal_insert_gallery.tpl, wird von cms\includes\modal.inc.php aufgerufen -->
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     <h4 class="modal-title"><?php echo $lang['insert_gallery_label']; ?></h4>
 </div>

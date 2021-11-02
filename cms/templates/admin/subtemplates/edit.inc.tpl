@@ -12,7 +12,7 @@
 <!-- angepasste Datei edit.inc.tpl, Aufruf erfolgt von mehreren Dateien -->
 <!-- Das sind comments.inc.php, edit.inc.php, galleries.inc.php, gcb.inc.php, menus.inc.php, users.inc.php -->
     <form id="content-form" action="index.php" method="post" class="form-horizontal">
-    <div>
+    <div><!-- Datei edit.inc.tpl -->
     <input type="hidden" name="mode" value="edit"/>
     <?php if (isset($page_data['id'])): ?>
         <input type="hidden" name="id" value="<?php echo $page_data['id']; ?>"/>

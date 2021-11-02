@@ -1,4 +1,4 @@
-<div class="modal-header">
+<div class="modal-header"><!-- Datei modal_insert_image.tpl, wird von cms\includes\modal.inc.php aufgerufen -->
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     <h4 class="modal-title"><?php echo $lang['insert_image']; ?></h4>
 </div>
