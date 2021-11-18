@@ -11,7 +11,16 @@ if(isset($_SESSION[$settings['session_prefix'].'user_type']) && $_SESSION[$setti
     $dbr = Database::$content->prepare("UPDATE ".Database::$db_settings['settings_table']." SET value=:value WHERE name=:name");
     $dbr->bindParam(':value', $val, PDO::PARAM_STR);
     $dbr->bindParam(':name', $key, PDO::PARAM_STR);
-    while(list($key, $val) = each($_POST))
+//    while(list($key, $val) = each($_POST))
+//     {
+//      if($key!='settings_submitted' && $key!='clear_cache')
+//       {
+//        $dbr->execute();
+//       }
+//     }
+// while(list($key, $value) = each($array)) ersetzen mit
+// foreach($array as $key => $value)	
+    foreach($_POST as $key => $val)
      {
       if($key!='settings_submitted' && $key!='clear_cache')
        {
