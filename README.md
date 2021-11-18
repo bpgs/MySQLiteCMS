@@ -243,4 +243,12 @@ Textcolor and Spellcheck enabled
 
 * wysiwyg_init.js 
 
+## Changes 18./19..11.2021
 
+Version 3.7.2
+
+`get_magic_quotes_gpc` and `each` are DEPRECATED in PHP 7.4/7.2 and can not be used in PHP 8.0
+
+* cms\includes\functions.inc.php
+* cms\includes\settings.inc.php
+* index.php
