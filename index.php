@@ -38,7 +38,8 @@ define('CACHE_DIR', 'cms/cache/');
 // get query string passed by mod_rewrite:
 if(isset($_GET['qs']))
  {
-  if(get_magic_quotes_gpc()) $_GET['qs'] = stripslashes($_GET['qs']);
+//  if(get_magic_quotes_gpc()) $_GET['qs'] = stripslashes($_GET['qs']);
+  $_GET['qs'] = stripslashes($_GET['qs']);
   $qs = $_GET['qs'];
  }
 else
