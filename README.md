@@ -243,7 +243,7 @@ Textcolor and Spellcheck enabled
 
 * wysiwyg_init.js 
 
-## Changes 18./19..11.2021
+## Changes 18./19.11.2021
 
 Version 3.7.2
 
@@ -252,3 +252,9 @@ Version 3.7.2
 * cms\includes\functions.inc.php
 * cms\includes\settings.inc.php
 * index.php
+
+## Changes 25.11.2021
+
+Version 3.7.3
+
+* cms\includes\functions.inc.php - function stripslashes_deep completely deactivated
