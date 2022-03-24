@@ -4,6 +4,7 @@
 	 Auf der Basis des Editors der Version 2.0.4 wurden weitere Buttons hinzugefügt:
 	 für die Überschriften h1, h2, h3, für code und pre, p, ul, li, strong, em, br, a img und Link -->
 <!-- Aus einer schon früher angepassten Variante wurde das Feld zum Einfügen von News wieder aufgenommen -->
+<!-- Mit Anpassungen an CSV2Table, Bootstrap-Carousel -->
 <?php if (isset($invalid_request)): ?>
 
     <p class="caution"><?php if (isset($lang[$invalid_request])) echo $lang[$invalid_request]; else echo $invalid_request; ?></p>
@@ -118,6 +119,16 @@
                     <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_gallery"
                        data-toggle="modal" data-target="#modal_gallery" data-insert="#content"
                        title="<?php echo $lang['insert_gallery_label']; ?>"><span class="glyphicon glyphicon-th"></span></a>
+					<!-- Neu für Bootstrap Carousel, Verarbeitung siehe ganz unten -->   
+                    <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_bootstrap_carousel"
+                       data-toggle="modal" data-target="#modal_bootstrap_carousel" data-insert="#content"
+                       title="<?php echo "Insert carousel"; ?>"><span
+                            class="glyphicon glyphicon-star"></span></a>
+					<!-- Neu für CSV2Table, Verarbeitung siehe ganz unten -->
+                    <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_csv2table"
+                       data-toggle="modal" data-target="#modal_csv2table" data-insert="#content"
+                       title="<?php echo "Insert CSV2Table"; ?>"><span
+                            class="glyphicon glyphicon-list-alt"></span></a>
 					<input class="insert_html" type="button" value="h1" title="&lt;h1&gt;...&lt;/h1&gt;" onclick="insert_html('&lt;h1&gt;','&lt;/h1&gt;','content-form','content');" />
 					<input class="insert_html" type="button" value="h2" title="&lt;h2&gt;...&lt;/h2&gt;" onclick="insert_html('&lt;h2&gt;','&lt;/h2&gt;','content-form','content');" />
 					<input class="insert_html" type="button" value="h3" title="&lt;h3&gt;...&lt;/h3&gt;" onclick="insert_html('&lt;h3&gt;','&lt;/h3&gt;','content-form','content');" />
@@ -132,8 +143,11 @@
 					<input class="insert_html" type="button" value="a" title="&lt;a href=&quot;&quot;&gt;...&lt;/a&gt;" onclick="insert_html('&lt;a href=&quot;&quot;&gt;','&lt;/a&gt;','content-form','content');" />
 					<input class="insert_html" type="button" value="img" title="&lt;img src=&quot;&quot; alt=&quot;&quot; height=&quot;&quot; width=&quot;&quot; /&gt;" onclick="insert_html('&lt;img src=&quot;&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;','','content-form','content');" />
 					<!-- In der Datei edit.inc.tpl der Version 2.0.4 sind außerdem noch Tags für Tabellen enthalten. Diese werden hier nicht eingefügt -->
-					<input class="format-button" type="button" value="<?php echo $lang['link_button']; ?>" title="<?php echo $lang['link_button_title']; ?>" onclick="insert_link('content-form','content','<?php echo addslashes($lang['link_text_m']); ?>','<?php echo addslashes($lang['link_target_m']); ?>');" /><br />
-					
+					<input class="format-button" type="button" value="<?php echo $lang['link_button']; ?>" title="<?php echo $lang['link_button_title']; ?>" onclick="insert_link('content-form','content','<?php echo addslashes($lang['link_text_m']); ?>','<?php echo addslashes($lang['link_target_m']); ?>');" />
+					<!-- Neu für BaseURL, Verarbeitung siehe ganz unten -->   
+					<input class="insert_html" type="button" value="URL" title="BaseURL" onclick="insert_html('[baseurl]','','content-form','content');" />
+					<!-- Neu für Categories, Verarbeitung siehe ganz unten -->   
+					<input class="insert_html" type="button" value="Cat" title="Categories" onclick="insert_html('[categories]','','content-form','content');" />
                 </div>
             </div>
         <?php endif; ?>
@@ -767,6 +781,19 @@
     </div>
 </div>
 <div class="modal fade" id="modal_gallery" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!-- Neu für bootstrap_carousel, csv2table -->
+<div class="modal fade" id="modal_bootstrap_carousel" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal_csv2table" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
         </div>
