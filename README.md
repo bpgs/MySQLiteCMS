@@ -1,4 +1,5 @@
 # MySQLiteCMS
+
 A SQLite leightweight CMS
 
 ## Basis
@@ -20,6 +21,8 @@ That concerns for example:
 
 ## Changes 19.06.2019
 
+The main improvement is that you now can include News-Pages and Simple-News-Pages into other pages.
+
 * New: \cms\templates\default-3menus-news.tpl
 * Changed:\cms\templates\default.tpl
 * Changed:\cms\data\content.sqlite
@@ -29,18 +32,19 @@ The main improvement is that you now can include News-Pages and Simple-News-Page
 
 ## Changes 20.06.2019
 
+Version 3.1.0
+
+The main improvement is the improvement of the Non-WYSIWYG-Editor
+
 * New: \static\js\admin.js; from 2.0.4 but with some changes
 * Changed: \static\css\style_admin.css; CSS Code for the Editor-Buttons
 * Changed: \cms\templates\admin\main.tpl; include admin.js
 * Changed: \cms\templates\admin\subtemplates\edit.inc.tpl; reaction for the Buttons
-
-The main improvement is the improvement of the Non-WYSIWYG-Editor
-
-## Changes 20.06.2019
-
-* \cms\lang\german.admin.lang.php; corrections of misspelled items
+* Changed: \cms\lang\german.admin.lang.php; corrections of misspelled items
 
 ## Changes 21.06.2019
+
+Version 3.2.0
 
 New items for backup and submenu:
 
@@ -79,6 +83,8 @@ The main improvements are the database backup and the submenus.
 
 ## Changes 23.06.2019
 
+Version 3.3.0
+
 New:
 
 * \cms\templates\subtemplates\bootstrap-carousel.inc.tpl
@@ -93,6 +99,8 @@ Changed:
 The main improvement is the Bootstrap Carousel
 
 ## Changes 28.06.2019
+
+Version 3.4.0
 
 New:
 
@@ -117,6 +125,8 @@ The main improvement is categories in news pages.
 
 ## Changes 01.07.2019
 
+Version 3.5.0
+
 * \cms\data\content.sqlite - some examples to demonstrate the new `[baseurl]`
 * \cms\includes\functions.inc.php - some useless comments removed, `[baseurl]` included
 * \cms\templates\admin\subtemplates\edit.inc.tpl - improved editor for sidebar content and teaser content
@@ -125,6 +135,8 @@ The main improvement is categories in news pages.
 The main improvements are the special tag `[baseurl]` and the improved editor for sidebar content and teaser content
 
 ## Changes 02.07.2019
+
+Version 3.5.1
 
 New:
 
@@ -142,6 +154,8 @@ Changed:
 All changes serve the favicon representation.
 
 ## Changes 04.07.2019
+
+Version 3.6.0
 
 New:
 
@@ -161,6 +175,8 @@ The main improvement is the csv import via special tag:
 
 ## Changes 09.07.2019
 
+Version 3.6.1
+
 * \github\cms\data\content.sqlite - Some descriptions added
 * \cms\includes\edit.inc.php - you can edit now the page views
 * \cms\templates\admin\subtemplates\edit.inc.tpl - you can edit now the page views
@@ -169,6 +185,8 @@ The main improvement is the csv import via special tag:
 The main improvement is that you can edit now the page views.
 
 ## Changes 11.07.2019
+
+Version 3.6.2
 
 * \github\cms\data\content.sqlite
 * \cms\includes\content.inc.php - show special tags in Global Content Blogs
@@ -188,12 +206,16 @@ You can use the following special tags:
 
 ## Changes 19.07.2019
 
+Version 3.6.3
+
 * \cms\data\content.sqlite
 * \cms\includes\functions.inc.php
 
 Avoid PHP 7.2 Notice: __autoload() is deprecated, use spl_autoload_register() instead
 
 ## Changes 20.07.2019
+
+Version 3.6.4
 
 * \cms\data\content.sqlite
 * \cms\templates\admin\subtemplates\settings_advanced.inc.tpl 
@@ -258,3 +280,19 @@ Version 3.7.2
 Version 3.7.3
 
 * cms\includes\functions.inc.php - function stripslashes_deep completely deactivated
+
+## Changes 24.03.2022
+
+Version 3.8.0
+
+Improved NON-WYSIWYG-Editor with help for the special tags `bootstrapgallery` and `csv2table`
+
+* cms\data\content.sqlite - better menu structure, changed version number
+* cms\templates\admin\main.tpl - avoid indexing of the login page
+* cms\templates\admin\subtemplates\edit.inc.tpl- changed to improve the NON-WYSIWYG-Editor
+* cms\templates\admin\subtemplates\modal_insert_bootstrap_carousel.tpl - new to improve the NON-WYSIWYG-Editor
+* cms\templates\admin\subtemplates\modal_insert_csv2table.tpl - new to improve the NON-WYSIWYG-Editor
+* cms\config\definitions.conf.php - `FILE_DIR` added
+* cms\includes\modal.inc.php - adoptions für bootstrap_carousel and csv2table
+
+See it working on <https://mein-wunschname.lima-city.at/>
