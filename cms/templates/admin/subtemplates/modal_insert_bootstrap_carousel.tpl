@@ -1,7 +1,7 @@
 <div class="modal-header">
 <!-- Datei modal_insert_bootstrap_carousel.tpl, wird von cms\includes\modal.inc.php aufgerufen -->
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title"><?php echo $lang['insert_gallery_label']; ?></h4>
+    <h4 class="modal-title"><?php echo $lang['insert_carousel_label']; ?></h4>
 </div>
 <div class="modal-body">
 
@@ -20,7 +20,7 @@
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $lang['cancel']; ?></button>
     <button id="insert-gallery" type="button"
-            class="btn btn-primary"><?php echo $lang['insert_gallery_label']; ?></button>
+            class="btn btn-primary"><?php echo $lang['insert_carousel_label']; ?></button>
 </div>
 <script>
     $(function () {

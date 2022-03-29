@@ -122,12 +122,12 @@
 					<!-- Neu für Bootstrap Carousel, Verarbeitung siehe ganz unten -->   
                     <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_bootstrap_carousel"
                        data-toggle="modal" data-target="#modal_bootstrap_carousel" data-insert="#content"
-                       title="<?php echo "Insert carousel"; ?>"><span
+                       title="<?php echo $lang['insert_carousel_label']; ?>"><span
                             class="glyphicon glyphicon-star"></span></a>
 					<!-- Neu für CSV2Table, Verarbeitung siehe ganz unten -->
                     <a class="btn btn-default btn-xs" href="index.php?mode=modal&amp;action=insert_csv2table"
                        data-toggle="modal" data-target="#modal_csv2table" data-insert="#content"
-                       title="<?php echo "Insert CSV2Table"; ?>"><span
+                       title="<?php echo  $lang['insert_csv2table_label']; ?>"><span
                             class="glyphicon glyphicon-list-alt"></span></a>
 					<input class="insert_html" type="button" value="h1" title="&lt;h1&gt;...&lt;/h1&gt;" onclick="insert_html('&lt;h1&gt;','&lt;/h1&gt;','content-form','content');" />
 					<input class="insert_html" type="button" value="h2" title="&lt;h2&gt;...&lt;/h2&gt;" onclick="insert_html('&lt;h2&gt;','&lt;/h2&gt;','content-form','content');" />

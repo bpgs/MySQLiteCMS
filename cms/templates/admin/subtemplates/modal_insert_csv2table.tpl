@@ -1,7 +1,7 @@
 <div class="modal-header">
 <!-- Datei modal_insert_amp_csv2table.tpl, wird von cms\includes\modal.inc.php aufgerufen -->
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title"><?php echo "CSV2Table"; ?></h4>
+    <h4 class="modal-title"><?php echo $lang['insert_csv2table_label']; ?></h4>
 </div>
 <div class="modal-body">
 
@@ -14,13 +14,13 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="csv2table_parameter"><?php echo "Parameter einfügen:"; ?></label>
+            <label for="csv2table_parameter"><?php echo $lang['insert_csv2table_additional']; ?></label>
             <input id="csv2table_parameter" class="form-control" type="text" name="csv2table_parameter"
-                   value="<?php echo "Parameterliste"; ?>">
+                   value="<?php echo $lang['insert_csv2table_additional']; ?>">
         </div>
     <?php else: ?>
         <div class="alert alert-warning">
-            <p><?php echo $lang['no_images']; ?></p>
+            <p><?php echo $lang['no_files']; ?></p>
         </div>
     <?php endif; ?>
 
@@ -29,7 +29,7 @@
     <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $lang['cancel']; ?></button>
     <?php if (isset($images)): ?>
         <button id="insert-csvfile" type="button"
-                class="btn btn-primary"><?php echo "Insert file"; ?></button>
+                class="btn btn-primary"><?php echo $lang['insert_csv2table_label']; ?></button>
     <?php endif; ?>
 </div>
 <script>
