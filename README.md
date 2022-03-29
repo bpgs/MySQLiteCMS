@@ -295,4 +295,17 @@ Improved NON-WYSIWYG-Editor with help for the special tags `bootstrapgallery` an
 * cms\config\definitions.conf.php - `FILE_DIR` added
 * cms\includes\modal.inc.php - adoptions für bootstrap_carousel and csv2table
 
+## Changes 29.03.2022
+
+Version 3.8.1
+
+* cms\data\content.sqlite - changed version number
+* cms\lang\english.admin.lang.php - some translations added
+* cms\lang\german.admin.lang.php - some translations added
+* cms\templates\admin\subtemplates\modal_insert_csv2table.tpl - better multilanguage support
+* cms\templates\admin\subtemplates\modal_insert_bootstrap_carousel.tpl - better multilanguage support
+* cms\templates\admin\subtemplates\edit.inc.tpl - better multilanguage support
+* cms\templates\admin\subtemplates\pages.inc.tpl - better multilanguage support, page typ and template in page overview added
+* cms\includes\pages.inc.php - page typ and template in page overview added
+
 See it working on <https://mein-wunschname.lima-city.at/>
