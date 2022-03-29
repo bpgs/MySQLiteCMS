@@ -69,6 +69,13 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']))
          case 'title':
           $order='title';
          break;
+		 // type neu
+         case 'type':
+          $order='type';
+         break;
+         case 'template':
+          $order='template';
+         break;
          case 'time':
           $order='time';
          break;
@@ -111,8 +118,8 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']))
      #$dbr->bindParam(':descasc', $descasc, PDO::PARAM_STR);
      #$dbr->execute();
      #$total_pages = $dbr-> fetchColumn();
-
-     $dbr = Database::$content->query("SELECT id, page, author, title, time, last_modified, last_modified_by, status, views, edit_permission, edit_permission_general FROM ".Database::$db_settings['pages_table']." ORDER BY ".$order." ".$descasc);
+     // type und template hinzugefügt 
+     $dbr = Database::$content->query("SELECT id, page, author, type, title, time, template, last_modified, last_modified_by, status, views, edit_permission, edit_permission_general FROM ".Database::$db_settings['pages_table']." ORDER BY ".$order." ".$descasc);
      #print_r(Database::$content->errorInfo());
      #$dbr->bindParam(':order', $order, PDO::PARAM_STR);
      #$dbr->bindParam(':descasc', $descasc, PDO::PARAM_STR);
@@ -123,6 +130,10 @@ if(isset($_SESSION[$settings['session_prefix'].'user_id']))
        $pages_data[$i]['id'] = $row['id'];
        $pages_data[$i]['page'] = $row['page'];
        $pages_data[$i]['author'] = $row['author'];
+	   //  type hinzugefügt 
+       $pages_data[$i]['type'] = $row['type'];
+	   //  template hinzugefügt 
+       $pages_data[$i]['template'] = $row['template'];
        $pages_data[$i]['title'] = $row['title'];
        $pages_data[$i]['time'] = $row['time'];
        $pages_data[$i]['last_modified'] = $row['last_modified'];
