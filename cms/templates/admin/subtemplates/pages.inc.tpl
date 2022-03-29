@@ -1,3 +1,5 @@
+<!-- Datei \cms\templates\admin\subtemplates\pages.inc.tpl -->
+<!-- wird von \cms\includes\pages.inc.php verwendet -->
 <div class="row">
     <div class="col-md-10">
         <h1><h1><?php echo $lang['page_overview']; ?></h1></h1>
@@ -25,6 +27,18 @@
                             <span
                                 class="glyphicon glyphicon-chevron-down"></span><?php elseif ($order == "title" && $descasc == "DESC"): ?>
                             <span class="glyphicon glyphicon-chevron-up"></span><?php endif; ?></a></th>
+                <!-- type neu -->
+				<th>
+                    <a href="index.php?mode=pages&amp;order=type&amp;descasc=<?php if ($descasc == "ASC" && $order == "type"): ?>DESC<?php else: ?>ASC<?php endif; ?>"><?php echo $lang['type_marking']; ?><?php if ($order == "type" && $descasc == "ASC"): ?>
+                            <span
+                                class="glyphicon glyphicon-chevron-down"></span><?php elseif ($order == "type" && $descasc == "DESC"): ?>
+                            <span class="glyphicon glyphicon-chevron-up"></span><?php endif; ?></a></th>							
+                <!-- template neu -->
+				<th>
+                    <a href="index.php?mode=pages&amp;order=template&amp;descasc=<?php if ($descasc == "ASC" && $order == "template"): ?>DESC<?php else: ?>ASC<?php endif; ?>"><?php echo $lang['template_marking']; ?><?php if ($order == "template" && $descasc == "ASC"): ?>
+                            <span
+                                class="glyphicon glyphicon-chevron-down"></span><?php elseif ($order == "template" && $descasc == "DESC"): ?>
+                            <span class="glyphicon glyphicon-chevron-up"></span><?php endif; ?></a></th>							
                 <th>
                     <a href="index.php?mode=pages&amp;order=time&amp;descasc=<?php if ($descasc == "ASC" && $order == "time"): ?>DESC<?php else: ?>ASC<?php endif; ?>"><?php echo $lang['created_marking']; ?><?php if ($order == "time" && $descasc == "ASC"): ?>
                             <span
@@ -60,6 +74,10 @@
                             ?></b><?php } ?>
                             </a><?php } else echo $page['page']; ?></td>
                     <td><?php echo $page['title']; ?></td>
+					<!-- type neu -->
+                    <td><?php echo $page['type']; ?></td>
+					<!-- template neu -->
+                    <td><?php echo $page['template']; ?></td>
                     <td class="nowrap"><?php echo strftime($lang['time_format'], $page['time']);
                         if (isset($users[$page['author']])) {
                             ?> <span class="smallx">
