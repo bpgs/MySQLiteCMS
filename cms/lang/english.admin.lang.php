@@ -74,6 +74,8 @@ $lang['error_no_title'] =                'No title specified';
 
 $lang['page_name_marking'] =             'Page name';
 $lang['title_marking'] =                 'Title';
+$lang['type_marking'] =                  'Page type';
+$lang['template_marking'] =              'Template';
 $lang['no_pages'] =                      'No pages available.';
 $lang['content_marking'] =               'Content';
 $lang['sidebars_marking'] =              'Sidebars';
@@ -460,7 +462,7 @@ $lang['spam_protection_saved'] =         'Saved';
 $lang['error_own_ip_banned'] =           'You banned your own IP!';
 $lang['error_own_user_agent_banned'] =   'You banned your own User Agent!';
 
-# insert_image
+# insert_image & other for NON-WYSIWYG-Editor
 $lang['insert_image'] =                  'Insert image';
 $lang['select_image_title'] =            'Insert image';
 $lang['insert_image_button'] =           'Insert image';
@@ -473,9 +475,13 @@ $lang['available_images'] =              'Available images';
 $lang['no_images'] =                     'No images available';
 $lang['insert_thumbnail'] =              'Insert thumbnail';
 $lang['thumbnail_select_gallery'] =      'Select gallery:';
-$lang['insert_image_label'] =           'Insert image';
-$lang['insert_thumbnail_label'] =       'Insert thumbnail';
-$lang['insert_gallery_label'] =         'Insert gallery';
+$lang['insert_image_label'] =            'Insert image';
+$lang['insert_thumbnail_label'] =        'Insert thumbnail';
+$lang['insert_gallery_label'] =          'Insert gallery';
+$lang['insert_carousel_label'] =         'Insert bootstrap carousel';
+$lang['insert_csv2table_label'] =        'Insert CSV2Table';
+$lang['insert_csv2table_additional'] =   'Additional parameters';
+$lang['no_files'] =                      'No files available';
 $lang['insert_image_class'] =            'CSS class:';
 $lang['insert_image_alt'] =              'ALT text:';
 $lang['insert_image_width_height'] =     'Width/Height:';

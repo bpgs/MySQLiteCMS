@@ -74,6 +74,8 @@ $lang['error_no_title'] =                'Es wurde kein Titel angegeben';
 
 $lang['page_name_marking'] =             'Seitenname';
 $lang['title_marking'] =                 'Titel';
+$lang['type_marking'] =                  'Seitentyp';
+$lang['template_marking'] =              'Template';
 $lang['no_pages'] =                      'Keine Seiten verfügbar.';
 $lang['content_marking'] =               'Inhalt';
 $lang['sidebars_marking'] =              'Sidebars';
@@ -460,7 +462,7 @@ $lang['spam_protection_saved'] =         'Gespeichert';
 $lang['error_own_ip_banned'] =           'Sie haben Ihre eigene IP gebannt!';
 $lang['error_own_user_agent_banned'] =   'Sie haben Ihren eigenen User-Agent gebannt!';
 
-# insert_image
+# insert_image & other for NON-WYSIWYG-Editor
 $lang['insert_image'] =                  'Bild einfügen';
 $lang['select_image_title'] =            'Bild einfügen';
 $lang['insert_image_button'] =           'Bild einfügen';
@@ -476,6 +478,10 @@ $lang['thumbnail_select_gallery'] =      'Galerie auswählen:';
 $lang['insert_image_label'] =            'Bild einfügen';
 $lang['insert_thumbnail_label'] =        'Thumbnail einfügen';
 $lang['insert_gallery_label'] =          'Galerie einfügen';
+$lang['insert_carousel_label'] =         'Bootstrap Karussell einfügen';
+$lang['insert_csv2table_label'] =        'CSV2Table einfügen';
+$lang['insert_csv2table_additional'] =   'Zusatzparameter';
+$lang['no_files'] =                      'Keine Dateien verfügbar';
 $lang['insert_image_class'] =            'CSS-Klasse:';
 $lang['insert_image_alt'] =              'ALT-Text:';
 $lang['insert_image_width_height'] =     'Breite/Höhe:';
